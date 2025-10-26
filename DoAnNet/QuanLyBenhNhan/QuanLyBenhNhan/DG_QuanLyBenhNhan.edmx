@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLyBenhNhanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BenhNhan">
+          <Key>
+            <PropertyRef Name="MaBN" />
+          </Key>
+          <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTenBN" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NgaySinhBN" Type="date" Nullable="false" />
+          <Property Name="SDTBN" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DiaChiBN" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChucVu">
+          <Key>
+            <PropertyRef Name="MaCV" />
+          </Key>
+          <Property Name="MaCV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenCV" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DieuTri">
+          <Key>
+            <PropertyRef Name="NgayDT" />
+            <PropertyRef Name="MaBN" />
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="NgayDT" Type="date" Nullable="false" />
+          <Property Name="ToaThuocDT" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Khoa">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoaiBenh">
+          <Key>
+            <PropertyRef Name="MaLB" />
+          </Key>
+          <Property Name="MaLB" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenLB" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MacBenh">
+          <Key>
+            <PropertyRef Name="MaBN" />
+            <PropertyRef Name="MaLB" />
+          </Key>
+          <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaLB" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThoiGianMacBenh" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTenNV" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaCV" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaKhoa" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_DieuTri_BenhNhan">
+          <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+          <End Role="DieuTri" Type="Self.DieuTri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenhNhan">
+              <PropertyRef Name="MaBN" />
+            </Principal>
+            <Dependent Role="DieuTri">
+              <PropertyRef Name="MaBN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DieuTri_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="DieuTri" Type="Self.DieuTri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="DieuTri">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacBenh_BenhNhan">
+          <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+          <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenhNhan">
+              <PropertyRef Name="MaBN" />
+            </Principal>
+            <Dependent Role="MacBenh">
+              <PropertyRef Name="MaBN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacBenh_LoaiBenh">
+          <End Role="LoaiBenh" Type="Self.LoaiBenh" Multiplicity="1" />
+          <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiBenh">
+              <PropertyRef Name="MaLB" />
+            </Principal>
+            <Dependent Role="MacBenh">
+              <PropertyRef Name="MaLB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_ChucVu">
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChucVu">
+              <PropertyRef Name="MaCV" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaCV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_Khoa">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyBenhNhanModelStoreContainer">
+          <EntitySet Name="BenhNhan" EntityType="Self.BenhNhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DieuTri" EntityType="Self.DieuTri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiBenh" EntityType="Self.LoaiBenh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacBenh" EntityType="Self.MacBenh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DieuTri_BenhNhan" Association="Self.FK_DieuTri_BenhNhan">
+            <End Role="BenhNhan" EntitySet="BenhNhan" />
+            <End Role="DieuTri" EntitySet="DieuTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DieuTri_NhanVien" Association="Self.FK_DieuTri_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="DieuTri" EntitySet="DieuTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacBenh_BenhNhan" Association="Self.FK_MacBenh_BenhNhan">
+            <End Role="BenhNhan" EntitySet="BenhNhan" />
+            <End Role="MacBenh" EntitySet="MacBenh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacBenh_LoaiBenh" Association="Self.FK_MacBenh_LoaiBenh">
+            <End Role="LoaiBenh" EntitySet="LoaiBenh" />
+            <End Role="MacBenh" EntitySet="MacBenh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_Khoa" Association="Self.FK_NhanVien_Khoa">
+            <End Role="Khoa" EntitySet="Khoa" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyBenhNhanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BenhNhan">
+          <Key>
+            <PropertyRef Name="MaBN" />
+          </Key>
+          <Property Name="MaBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoTenBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinhBN" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SDTBN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DiaChiBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DieuTri" Relationship="Self.FK_DieuTri_BenhNhan" FromRole="BenhNhan" ToRole="DieuTri" />
+          <NavigationProperty Name="MacBenh" Relationship="Self.FK_MacBenh_BenhNhan" FromRole="BenhNhan" ToRole="MacBenh" />
+        </EntityType>
+        <EntityType Name="ChucVu">
+          <Key>
+            <PropertyRef Name="MaCV" />
+          </Key>
+          <Property Name="MaCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_ChucVu" FromRole="ChucVu" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="DieuTri">
+          <Key>
+            <PropertyRef Name="NgayDT" />
+            <PropertyRef Name="MaBN" />
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="NgayDT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToaThuocDT" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BenhNhan" Relationship="Self.FK_DieuTri_BenhNhan" FromRole="DieuTri" ToRole="BenhNhan" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_DieuTri_NhanVien" FromRole="DieuTri" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="Khoa">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_Khoa" FromRole="Khoa" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="LoaiBenh">
+          <Key>
+            <PropertyRef Name="MaLB" />
+          </Key>
+          <Property Name="MaLB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenLB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MacBenh" Relationship="Self.FK_MacBenh_LoaiBenh" FromRole="LoaiBenh" ToRole="MacBenh" />
+        </EntityType>
+        <EntityType Name="MacBenh">
+          <Key>
+            <PropertyRef Name="MaBN" />
+            <PropertyRef Name="MaLB" />
+          </Key>
+          <Property Name="MaBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThoiGianMacBenh" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="BenhNhan" Relationship="Self.FK_MacBenh_BenhNhan" FromRole="MacBenh" ToRole="BenhNhan" />
+          <NavigationProperty Name="LoaiBenh" Relationship="Self.FK_MacBenh_LoaiBenh" FromRole="MacBenh" ToRole="LoaiBenh" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoTenNV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChucVu" Relationship="Self.FK_NhanVien_ChucVu" FromRole="NhanVien" ToRole="ChucVu" />
+          <NavigationProperty Name="DieuTri" Relationship="Self.FK_DieuTri_NhanVien" FromRole="NhanVien" ToRole="DieuTri" />
+          <NavigationProperty Name="Khoa" Relationship="Self.FK_NhanVien_Khoa" FromRole="NhanVien" ToRole="Khoa" />
+        </EntityType>
+        <Association Name="FK_DieuTri_BenhNhan">
+          <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+          <End Role="DieuTri" Type="Self.DieuTri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenhNhan">
+              <PropertyRef Name="MaBN" />
+            </Principal>
+            <Dependent Role="DieuTri">
+              <PropertyRef Name="MaBN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacBenh_BenhNhan">
+          <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+          <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenhNhan">
+              <PropertyRef Name="MaBN" />
+            </Principal>
+            <Dependent Role="MacBenh">
+              <PropertyRef Name="MaBN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_ChucVu">
+          <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChucVu">
+              <PropertyRef Name="MaCV" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaCV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DieuTri_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="DieuTri" Type="Self.DieuTri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="DieuTri">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_Khoa">
+          <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoa">
+              <PropertyRef Name="MaKhoa" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaKhoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacBenh_LoaiBenh">
+          <End Role="LoaiBenh" Type="Self.LoaiBenh" Multiplicity="1" />
+          <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiBenh">
+              <PropertyRef Name="MaLB" />
+            </Principal>
+            <Dependent Role="MacBenh">
+              <PropertyRef Name="MaLB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyBenhNhanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BenhNhan" EntityType="Self.BenhNhan" />
+          <EntitySet Name="ChucVu" EntityType="Self.ChucVu" />
+          <EntitySet Name="DieuTri" EntityType="Self.DieuTri" />
+          <EntitySet Name="Khoa" EntityType="Self.Khoa" />
+          <EntitySet Name="LoaiBenh" EntityType="Self.LoaiBenh" />
+          <EntitySet Name="MacBenh" EntityType="Self.MacBenh" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" />
+          <AssociationSet Name="FK_DieuTri_BenhNhan" Association="Self.FK_DieuTri_BenhNhan">
+            <End Role="BenhNhan" EntitySet="BenhNhan" />
+            <End Role="DieuTri" EntitySet="DieuTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacBenh_BenhNhan" Association="Self.FK_MacBenh_BenhNhan">
+            <End Role="BenhNhan" EntitySet="BenhNhan" />
+            <End Role="MacBenh" EntitySet="MacBenh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DieuTri_NhanVien" Association="Self.FK_DieuTri_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="DieuTri" EntitySet="DieuTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_Khoa" Association="Self.FK_NhanVien_Khoa">
+            <End Role="Khoa" EntitySet="Khoa" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacBenh_LoaiBenh" Association="Self.FK_MacBenh_LoaiBenh">
+            <End Role="LoaiBenh" EntitySet="LoaiBenh" />
+            <End Role="MacBenh" EntitySet="MacBenh" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyBenhNhanModelStoreContainer" CdmEntityContainer="QuanLyBenhNhanEntities">
+          <EntitySetMapping Name="BenhNhan">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BenhNhan">
+              <MappingFragment StoreEntitySet="BenhNhan">
+                <ScalarProperty Name="MaBN" ColumnName="MaBN" />
+                <ScalarProperty Name="HoTenBN" ColumnName="HoTenBN" />
+                <ScalarProperty Name="NgaySinhBN" ColumnName="NgaySinhBN" />
+                <ScalarProperty Name="SDTBN" ColumnName="SDTBN" />
+                <ScalarProperty Name="DiaChiBN" ColumnName="DiaChiBN" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChucVu">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.ChucVu">
+              <MappingFragment StoreEntitySet="ChucVu">
+                <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+                <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DieuTri">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.DieuTri">
+              <MappingFragment StoreEntitySet="DieuTri">
+                <ScalarProperty Name="NgayDT" ColumnName="NgayDT" />
+                <ScalarProperty Name="ToaThuocDT" ColumnName="ToaThuocDT" />
+                <ScalarProperty Name="MaBN" ColumnName="MaBN" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khoa">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.Khoa">
+              <MappingFragment StoreEntitySet="Khoa">
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiBenh">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.LoaiBenh">
+              <MappingFragment StoreEntitySet="LoaiBenh">
+                <ScalarProperty Name="MaLB" ColumnName="MaLB" />
+                <ScalarProperty Name="TenLB" ColumnName="TenLB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacBenh">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.MacBenh">
+              <MappingFragment StoreEntitySet="MacBenh">
+                <ScalarProperty Name="MaBN" ColumnName="MaBN" />
+                <ScalarProperty Name="MaLB" ColumnName="MaLB" />
+                <ScalarProperty Name="ThoiGianMacBenh" ColumnName="ThoiGianMacBenh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanVien">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="HoTenNV" ColumnName="HoTenNV" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
