@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyBenhNhanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BenhNhan">
+    <Key>
+      <PropertyRef Name="MaBN" />
+    </Key>
+    <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HoTenBN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgaySinhBN" Type="date" Nullable="false" />
+    <Property Name="SDTBN" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="DiaChiBN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChucVu">
+    <Key>
+      <PropertyRef Name="MaCV" />
+    </Key>
+    <Property Name="MaCV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenCV" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DieuTri">
+    <Key>
+      <PropertyRef Name="NgayDT" />
+      <PropertyRef Name="MaBN" />
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="NgayDT" Type="date" Nullable="false" />
+    <Property Name="ToaThuocDT" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Khoa">
+    <Key>
+      <PropertyRef Name="MaKhoa" />
+    </Key>
+    <Property Name="MaKhoa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiBenh">
+    <Key>
+      <PropertyRef Name="MaLB" />
+    </Key>
+    <Property Name="MaLB" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenLB" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MacBenh">
+    <Key>
+      <PropertyRef Name="MaBN" />
+      <PropertyRef Name="MaLB" />
+    </Key>
+    <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaLB" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ThoiGianMacBenh" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HoTenNV" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaCV" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaKhoa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_DieuTri_BenhNhan">
+    <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+    <End Role="DieuTri" Type="Self.DieuTri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BenhNhan">
+        <PropertyRef Name="MaBN" />
+      </Principal>
+      <Dependent Role="DieuTri">
+        <PropertyRef Name="MaBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DieuTri_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DieuTri" Type="Self.DieuTri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="DieuTri">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MacBenh_BenhNhan">
+    <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+    <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BenhNhan">
+        <PropertyRef Name="MaBN" />
+      </Principal>
+      <Dependent Role="MacBenh">
+        <PropertyRef Name="MaBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MacBenh_LoaiBenh">
+    <End Role="LoaiBenh" Type="Self.LoaiBenh" Multiplicity="1" />
+    <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiBenh">
+        <PropertyRef Name="MaLB" />
+      </Principal>
+      <Dependent Role="MacBenh">
+        <PropertyRef Name="MaLB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanVien_ChucVu">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1" />
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="MaCV" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="MaCV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanVien_Khoa">
+    <End Role="Khoa" Type="Self.Khoa" Multiplicity="0..1" />
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khoa">
+        <PropertyRef Name="MaKhoa" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="MaKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyBenhNhanModelStoreContainer">
+    <EntitySet Name="BenhNhan" EntityType="Self.BenhNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DieuTri" EntityType="Self.DieuTri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiBenh" EntityType="Self.LoaiBenh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MacBenh" EntityType="Self.MacBenh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DieuTri_BenhNhan" Association="Self.FK_DieuTri_BenhNhan">
+      <End Role="BenhNhan" EntitySet="BenhNhan" />
+      <End Role="DieuTri" EntitySet="DieuTri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DieuTri_NhanVien" Association="Self.FK_DieuTri_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DieuTri" EntitySet="DieuTri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MacBenh_BenhNhan" Association="Self.FK_MacBenh_BenhNhan">
+      <End Role="BenhNhan" EntitySet="BenhNhan" />
+      <End Role="MacBenh" EntitySet="MacBenh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MacBenh_LoaiBenh" Association="Self.FK_MacBenh_LoaiBenh">
+      <End Role="LoaiBenh" EntitySet="LoaiBenh" />
+      <End Role="MacBenh" EntitySet="MacBenh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="NhanVien" EntitySet="NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanVien_Khoa" Association="Self.FK_NhanVien_Khoa">
+      <End Role="Khoa" EntitySet="Khoa" />
+      <End Role="NhanVien" EntitySet="NhanVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
