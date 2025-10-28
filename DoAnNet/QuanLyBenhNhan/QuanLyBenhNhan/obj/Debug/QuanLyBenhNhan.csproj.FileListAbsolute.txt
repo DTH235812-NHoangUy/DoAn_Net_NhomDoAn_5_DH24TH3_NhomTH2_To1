@@ -26,6 +26,7 @@ D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\EntityFramework.SqlS
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\EntityFramework.xml
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\EntityFramework.SqlServer.xml
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.csproj.AssemblyReference.cache
+D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMBenhNhan.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmMain.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.Properties.Resources.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.csproj.GenerateResource.cache
@@ -34,4 +35,3 @@ D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBe.FF7EFA06.Up
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.pdb
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe.config
-D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMBenhNhan.resources
