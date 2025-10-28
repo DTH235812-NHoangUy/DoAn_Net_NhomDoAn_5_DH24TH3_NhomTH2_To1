@@ -14,15 +14,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BHYT">
-      <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BHYT">
-        <MappingFragment StoreEntitySet="BHYT">
-          <ScalarProperty Name="MaBHYT" ColumnName="MaBHYT" />
-          <ScalarProperty Name="NgayBDBHYT" ColumnName="NgayBDBHYT" />
-          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ChucVu">
       <EntityTypeMapping TypeName="QuanLyBenhNhanModel.ChucVu">
         <MappingFragment StoreEntitySet="ChucVu">
@@ -86,6 +77,16 @@
         <MappingFragment StoreEntitySet="Thuoc">
           <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
           <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BHYT">
+      <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BHYT">
+        <MappingFragment StoreEntitySet="BHYT">
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+          <ScalarProperty Name="NgayHHBHYT" ColumnName="NgayHHBHYT" />
+          <ScalarProperty Name="NgayBDBHYT" ColumnName="NgayBDBHYT" />
+          <ScalarProperty Name="MaBHYT" ColumnName="MaBHYT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
