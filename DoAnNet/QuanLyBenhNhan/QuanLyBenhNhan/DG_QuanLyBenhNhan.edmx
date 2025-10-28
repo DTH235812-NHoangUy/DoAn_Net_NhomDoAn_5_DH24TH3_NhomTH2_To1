@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyBenhNhanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyBenhNhanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BenhNhan">
           <Key>
             <PropertyRef Name="MaBN" />
@@ -23,7 +23,7 @@
           </Key>
           <Property Name="MaBHYT" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NgayBDBHYT" Type="date" />
-          <Property Name="NgatHHBHYT" Type="date" />
+          <Property Name="NgayHHBHYT" Type="date" />
           <Property Name="QueQuan" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ChucVu">
@@ -179,8 +179,7 @@
             <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyBenhNhanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -204,7 +203,7 @@
           </Key>
           <Property Name="MaBHYT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgayBDBHYT" Type="DateTime" Precision="0" />
-          <Property Name="NgatHHBHYT" Type="DateTime" Precision="0" />
+          <Property Name="NgayHHBHYT" Type="DateTime" Precision="0" />
           <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ChucVu">
@@ -392,7 +391,6 @@
               <MappingFragment StoreEntitySet="BHYT">
                 <ScalarProperty Name="MaBHYT" ColumnName="MaBHYT" />
                 <ScalarProperty Name="NgayBDBHYT" ColumnName="NgayBDBHYT" />
-                <ScalarProperty Name="NgatHHBHYT" ColumnName="NgatHHBHYT" />
                 <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
               </MappingFragment>
             </EntityTypeMapping>

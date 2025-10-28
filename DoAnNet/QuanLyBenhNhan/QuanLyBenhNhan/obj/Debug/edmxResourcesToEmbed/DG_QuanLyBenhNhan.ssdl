@@ -18,7 +18,7 @@
     </Key>
     <Property Name="MaBHYT" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NgayBDBHYT" Type="date" />
-    <Property Name="NgatHHBHYT" Type="date" />
+    <Property Name="NgayHHBHYT" Type="date" />
     <Property Name="QueQuan" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="ChucVu">

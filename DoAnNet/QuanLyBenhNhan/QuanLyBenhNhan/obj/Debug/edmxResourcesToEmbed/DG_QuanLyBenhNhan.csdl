@@ -20,7 +20,7 @@
     </Key>
     <Property Name="MaBHYT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NgayBDBHYT" Type="DateTime" Precision="0" />
-    <Property Name="NgatHHBHYT" Type="DateTime" Precision="0" />
+    <Property Name="NgayHHBHYT" Type="DateTime" Precision="0" />
     <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ChucVu">

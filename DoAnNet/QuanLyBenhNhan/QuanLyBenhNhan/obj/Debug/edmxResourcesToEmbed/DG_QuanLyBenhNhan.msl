@@ -19,7 +19,6 @@
         <MappingFragment StoreEntitySet="BHYT">
           <ScalarProperty Name="MaBHYT" ColumnName="MaBHYT" />
           <ScalarProperty Name="NgayBDBHYT" ColumnName="NgayBDBHYT" />
-          <ScalarProperty Name="NgatHHBHYT" ColumnName="NgatHHBHYT" />
           <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
         </MappingFragment>
       </EntityTypeMapping>

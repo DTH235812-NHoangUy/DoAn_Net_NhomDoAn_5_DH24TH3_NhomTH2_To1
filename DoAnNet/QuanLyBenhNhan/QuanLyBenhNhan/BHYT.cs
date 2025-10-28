@@ -16,7 +16,7 @@ namespace QuanLyBenhNhan
     {
         public string MaBHYT { get; set; }
         public Nullable<System.DateTime> NgayBDBHYT { get; set; }
-        public Nullable<System.DateTime> NgatHHBHYT { get; set; }
+        public Nullable<System.DateTime> NgayHHBHYT { get; set; }
         public string QueQuan { get; set; }
     }
 }
