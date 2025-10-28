@@ -27,6 +27,7 @@ namespace QuanLyBenhNhan
         public string SDTBN { get; set; }
         public string DiaChiBN { get; set; }
         public string GioiTinh { get; set; }
+        public string TuoiBN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DieuTri> DieuTri { get; set; }

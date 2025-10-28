@@ -14,8 +14,8 @@ namespace QuanLyBenhNhan
     
     public partial class DieuTri
     {
-        public System.DateTime NgayDT { get; set; }
-        public string ToaThuocDT { get; set; }
+        public System.DateTime NgayDieuTri { get; set; }
+        public System.DateTime NgayXuatVien { get; set; }
         public string MaBN { get; set; }
         public string MaNV { get; set; }
     

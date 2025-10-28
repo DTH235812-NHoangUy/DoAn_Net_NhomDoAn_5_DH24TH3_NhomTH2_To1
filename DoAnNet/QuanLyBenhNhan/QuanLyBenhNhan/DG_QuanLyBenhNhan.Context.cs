@@ -13,10 +13,10 @@ namespace QuanLyBenhNhan
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyBenhNhanEntities : DbContext
+    public partial class QuanLyBenhNhanEntities1 : DbContext
     {
-        public QuanLyBenhNhanEntities()
-            : base("name=QuanLyBenhNhanEntities")
+        public QuanLyBenhNhanEntities1()
+            : base("name=QuanLyBenhNhanEntities1")
         {
         }
     
@@ -26,11 +26,13 @@ namespace QuanLyBenhNhan
         }
     
         public virtual DbSet<BenhNhan> BenhNhan { get; set; }
+        public virtual DbSet<BHYT> BHYT { get; set; }
         public virtual DbSet<ChucVu> ChucVu { get; set; }
         public virtual DbSet<DieuTri> DieuTri { get; set; }
+        public virtual DbSet<DonThuoc> DonThuoc { get; set; }
         public virtual DbSet<Khoa> Khoa { get; set; }
-        public virtual DbSet<LoaiBenh> LoaiBenh { get; set; }
         public virtual DbSet<MacBenh> MacBenh { get; set; }
         public virtual DbSet<NhanVien> NhanVien { get; set; }
+        public virtual DbSet<Thuoc> Thuoc { get; set; }
     }
 }

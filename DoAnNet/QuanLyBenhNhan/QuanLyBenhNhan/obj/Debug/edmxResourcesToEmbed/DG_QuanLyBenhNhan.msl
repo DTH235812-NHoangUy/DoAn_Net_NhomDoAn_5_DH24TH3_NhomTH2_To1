@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QuanLyBenhNhanModelStoreContainer" CdmEntityContainer="QuanLyBenhNhanEntities">
+  <EntityContainerMapping StorageEntityContainer="QuanLyBenhNhanModelStoreContainer" CdmEntityContainer="QuanLyBenhNhanEntities1">
     <EntitySetMapping Name="BenhNhan">
       <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BenhNhan">
         <MappingFragment StoreEntitySet="BenhNhan">
@@ -10,6 +10,17 @@
           <ScalarProperty Name="SDTBN" ColumnName="SDTBN" />
           <ScalarProperty Name="DiaChiBN" ColumnName="DiaChiBN" />
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="TuoiBN" ColumnName="TuoiBN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BHYT">
+      <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BHYT">
+        <MappingFragment StoreEntitySet="BHYT">
+          <ScalarProperty Name="MaBHYT" ColumnName="MaBHYT" />
+          <ScalarProperty Name="NgayBDBHYT" ColumnName="NgayBDBHYT" />
+          <ScalarProperty Name="NgatHHBHYT" ColumnName="NgatHHBHYT" />
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -24,10 +35,20 @@
     <EntitySetMapping Name="DieuTri">
       <EntityTypeMapping TypeName="QuanLyBenhNhanModel.DieuTri">
         <MappingFragment StoreEntitySet="DieuTri">
-          <ScalarProperty Name="NgayDT" ColumnName="NgayDT" />
-          <ScalarProperty Name="ToaThuocDT" ColumnName="ToaThuocDT" />
+          <ScalarProperty Name="NgayDieuTri" ColumnName="NgayDieuTri" />
+          <ScalarProperty Name="NgayXuatVien" ColumnName="NgayXuatVien" />
           <ScalarProperty Name="MaBN" ColumnName="MaBN" />
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonThuoc">
+      <EntityTypeMapping TypeName="QuanLyBenhNhanModel.DonThuoc">
+        <MappingFragment StoreEntitySet="DonThuoc">
+          <ScalarProperty Name="MaDT" ColumnName="MaDT" />
+          <ScalarProperty Name="TenDT" ColumnName="TenDT" />
+          <ScalarProperty Name="CachSuDung" ColumnName="CachSuDung" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -39,20 +60,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LoaiBenh">
-      <EntityTypeMapping TypeName="QuanLyBenhNhanModel.LoaiBenh">
-        <MappingFragment StoreEntitySet="LoaiBenh">
-          <ScalarProperty Name="MaLB" ColumnName="MaLB" />
-          <ScalarProperty Name="TenLB" ColumnName="TenLB" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="MacBenh">
       <EntityTypeMapping TypeName="QuanLyBenhNhanModel.MacBenh">
         <MappingFragment StoreEntitySet="MacBenh">
-          <ScalarProperty Name="MaBN" ColumnName="MaBN" />
-          <ScalarProperty Name="MaLB" ColumnName="MaLB" />
-          <ScalarProperty Name="ThoiGianMacBenh" ColumnName="ThoiGianMacBenh" />
+          <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
+          <ScalarProperty Name="LoaiBenh" ColumnName="LoaiBenh" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -64,8 +76,17 @@
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
           <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TuoiNV" ColumnName="TuoiNV" />
           <ScalarProperty Name="MaCV" ColumnName="MaCV" />
           <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thuoc">
+      <EntityTypeMapping TypeName="QuanLyBenhNhanModel.Thuoc">
+        <MappingFragment StoreEntitySet="Thuoc">
+          <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
+          <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

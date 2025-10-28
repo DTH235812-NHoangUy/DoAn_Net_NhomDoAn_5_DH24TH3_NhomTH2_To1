@@ -14,11 +14,9 @@ namespace QuanLyBenhNhan
     
     public partial class MacBenh
     {
-        public string MaBN { get; set; }
-        public string MaLB { get; set; }
-        public System.DateTime ThoiGianMacBenh { get; set; }
+        public string MaBenh { get; set; }
+        public string LoaiBenh { get; set; }
     
         public virtual BenhNhan BenhNhan { get; set; }
-        public virtual LoaiBenh LoaiBenh { get; set; }
     }
 }

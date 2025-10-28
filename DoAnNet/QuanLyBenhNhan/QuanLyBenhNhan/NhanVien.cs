@@ -25,6 +25,7 @@ namespace QuanLyBenhNhan
         public Nullable<System.DateTime> NgaySinh { get; set; }
         public string GioiTinh { get; set; }
         public string DiaChi { get; set; }
+        public string TuoiNV { get; set; }
         public string MaCV { get; set; }
         public string MaKhoa { get; set; }
     

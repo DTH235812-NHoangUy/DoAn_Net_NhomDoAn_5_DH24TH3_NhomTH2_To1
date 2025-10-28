@@ -15,6 +15,16 @@
           <Property Name="SDTBN" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="DiaChiBN" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TuoiBN" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BHYT">
+          <Key>
+            <PropertyRef Name="MaBHYT" />
+          </Key>
+          <Property Name="MaBHYT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgayBDBHYT" Type="date" />
+          <Property Name="NgatHHBHYT" Type="date" />
+          <Property Name="QueQuan" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -25,14 +35,23 @@
         </EntityType>
         <EntityType Name="DieuTri">
           <Key>
-            <PropertyRef Name="NgayDT" />
+            <PropertyRef Name="NgayDieuTri" />
             <PropertyRef Name="MaBN" />
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="NgayDT" Type="date" Nullable="false" />
-          <Property Name="ToaThuocDT" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NgayDieuTri" Type="date" Nullable="false" />
+          <Property Name="NgayXuatVien" Type="date" Nullable="false" />
           <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DonThuoc">
+          <Key>
+            <PropertyRef Name="MaDT" />
+          </Key>
+          <Property Name="MaDT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CachSuDung" Type="nvarchar" MaxLength="50" />
+          <Property Name="DonViTinh" Type="int" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
@@ -41,21 +60,13 @@
           <Property Name="MaKhoa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="LoaiBenh">
-          <Key>
-            <PropertyRef Name="MaLB" />
-          </Key>
-          <Property Name="MaLB" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TenLB" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
         <EntityType Name="MacBenh">
           <Key>
-            <PropertyRef Name="MaBN" />
-            <PropertyRef Name="MaLB" />
+            <PropertyRef Name="MaBenh" />
+            <PropertyRef Name="LoaiBenh" />
           </Key>
-          <Property Name="MaBN" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MaLB" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ThoiGianMacBenh" Type="date" Nullable="false" />
+          <Property Name="MaBenh" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoaiBenh" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -66,8 +77,16 @@
           <Property Name="NgaySinh" Type="date" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="TuoiNV" Type="nvarchar" MaxLength="50" />
           <Property Name="MaCV" Type="nvarchar" MaxLength="50" />
           <Property Name="MaKhoa" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Thuoc">
+          <Key>
+            <PropertyRef Name="MaThuoc" />
+          </Key>
+          <Property Name="MaThuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenThuoc" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_DieuTri_BenhNhan">
           <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
@@ -101,19 +120,7 @@
               <PropertyRef Name="MaBN" />
             </Principal>
             <Dependent Role="MacBenh">
-              <PropertyRef Name="MaBN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MacBenh_LoaiBenh">
-          <End Role="LoaiBenh" Type="Self.LoaiBenh" Multiplicity="1" />
-          <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiBenh">
-              <PropertyRef Name="MaLB" />
-            </Principal>
-            <Dependent Role="MacBenh">
-              <PropertyRef Name="MaLB" />
+              <PropertyRef Name="MaBenh" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -143,12 +150,14 @@
         </Association>
         <EntityContainer Name="QuanLyBenhNhanModelStoreContainer">
           <EntitySet Name="BenhNhan" EntityType="Self.BenhNhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BHYT" EntityType="Self.BHYT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DieuTri" EntityType="Self.DieuTri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonThuoc" EntityType="Self.DonThuoc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LoaiBenh" EntityType="Self.LoaiBenh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MacBenh" EntityType="Self.MacBenh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Thuoc" EntityType="Self.Thuoc" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DieuTri_BenhNhan" Association="Self.FK_DieuTri_BenhNhan">
             <End Role="BenhNhan" EntitySet="BenhNhan" />
             <End Role="DieuTri" EntitySet="DieuTri" />
@@ -159,10 +168,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_MacBenh_BenhNhan" Association="Self.FK_MacBenh_BenhNhan">
             <End Role="BenhNhan" EntitySet="BenhNhan" />
-            <End Role="MacBenh" EntitySet="MacBenh" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MacBenh_LoaiBenh" Association="Self.FK_MacBenh_LoaiBenh">
-            <End Role="LoaiBenh" EntitySet="LoaiBenh" />
             <End Role="MacBenh" EntitySet="MacBenh" />
           </AssociationSet>
           <AssociationSet Name="FK_NhanVien_ChucVu" Association="Self.FK_NhanVien_ChucVu">
@@ -189,8 +194,18 @@
           <Property Name="SDTBN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChiBN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TuoiBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DieuTri" Relationship="Self.FK_DieuTri_BenhNhan" FromRole="BenhNhan" ToRole="DieuTri" />
           <NavigationProperty Name="MacBenh" Relationship="Self.FK_MacBenh_BenhNhan" FromRole="BenhNhan" ToRole="MacBenh" />
+        </EntityType>
+        <EntityType Name="BHYT">
+          <Key>
+            <PropertyRef Name="MaBHYT" />
+          </Key>
+          <Property Name="MaBHYT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayBDBHYT" Type="DateTime" Precision="0" />
+          <Property Name="NgatHHBHYT" Type="DateTime" Precision="0" />
+          <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -202,16 +217,25 @@
         </EntityType>
         <EntityType Name="DieuTri">
           <Key>
-            <PropertyRef Name="NgayDT" />
+            <PropertyRef Name="NgayDieuTri" />
             <PropertyRef Name="MaBN" />
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="NgayDT" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ToaThuocDT" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayDieuTri" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NgayXuatVien" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="MaBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BenhNhan" Relationship="Self.FK_DieuTri_BenhNhan" FromRole="DieuTri" ToRole="BenhNhan" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_DieuTri_NhanVien" FromRole="DieuTri" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="DonThuoc">
+          <Key>
+            <PropertyRef Name="MaDT" />
+          </Key>
+          <Property Name="MaDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CachSuDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DonViTinh" Type="Int32" />
         </EntityType>
         <EntityType Name="Khoa">
           <Key>
@@ -221,24 +245,14 @@
           <Property Name="TenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_Khoa" FromRole="Khoa" ToRole="NhanVien" />
         </EntityType>
-        <EntityType Name="LoaiBenh">
-          <Key>
-            <PropertyRef Name="MaLB" />
-          </Key>
-          <Property Name="MaLB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TenLB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="MacBenh" Relationship="Self.FK_MacBenh_LoaiBenh" FromRole="LoaiBenh" ToRole="MacBenh" />
-        </EntityType>
         <EntityType Name="MacBenh">
           <Key>
-            <PropertyRef Name="MaBN" />
-            <PropertyRef Name="MaLB" />
+            <PropertyRef Name="MaBenh" />
+            <PropertyRef Name="LoaiBenh" />
           </Key>
-          <Property Name="MaBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaLB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ThoiGianMacBenh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaBenh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoaiBenh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BenhNhan" Relationship="Self.FK_MacBenh_BenhNhan" FromRole="MacBenh" ToRole="BenhNhan" />
-          <NavigationProperty Name="LoaiBenh" Relationship="Self.FK_MacBenh_LoaiBenh" FromRole="MacBenh" ToRole="LoaiBenh" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -249,11 +263,19 @@
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TuoiNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChucVu" Relationship="Self.FK_NhanVien_ChucVu" FromRole="NhanVien" ToRole="ChucVu" />
           <NavigationProperty Name="DieuTri" Relationship="Self.FK_DieuTri_NhanVien" FromRole="NhanVien" ToRole="DieuTri" />
           <NavigationProperty Name="Khoa" Relationship="Self.FK_NhanVien_Khoa" FromRole="NhanVien" ToRole="Khoa" />
+        </EntityType>
+        <EntityType Name="Thuoc">
+          <Key>
+            <PropertyRef Name="MaThuoc" />
+          </Key>
+          <Property Name="MaThuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenThuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_DieuTri_BenhNhan">
           <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
@@ -275,7 +297,7 @@
               <PropertyRef Name="MaBN" />
             </Principal>
             <Dependent Role="MacBenh">
-              <PropertyRef Name="MaBN" />
+              <PropertyRef Name="MaBenh" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -315,26 +337,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MacBenh_LoaiBenh">
-          <End Role="LoaiBenh" Type="Self.LoaiBenh" Multiplicity="1" />
-          <End Role="MacBenh" Type="Self.MacBenh" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiBenh">
-              <PropertyRef Name="MaLB" />
-            </Principal>
-            <Dependent Role="MacBenh">
-              <PropertyRef Name="MaLB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="QuanLyBenhNhanEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyBenhNhanEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BenhNhan" EntityType="Self.BenhNhan" />
+          <EntitySet Name="BHYT" EntityType="Self.BHYT" />
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" />
           <EntitySet Name="DieuTri" EntityType="Self.DieuTri" />
+          <EntitySet Name="DonThuoc" EntityType="Self.DonThuoc" />
           <EntitySet Name="Khoa" EntityType="Self.Khoa" />
-          <EntitySet Name="LoaiBenh" EntityType="Self.LoaiBenh" />
           <EntitySet Name="MacBenh" EntityType="Self.MacBenh" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" />
+          <EntitySet Name="Thuoc" EntityType="Self.Thuoc" />
           <AssociationSet Name="FK_DieuTri_BenhNhan" Association="Self.FK_DieuTri_BenhNhan">
             <End Role="BenhNhan" EntitySet="BenhNhan" />
             <End Role="DieuTri" EntitySet="DieuTri" />
@@ -355,17 +367,13 @@
             <End Role="Khoa" EntitySet="Khoa" />
             <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
-          <AssociationSet Name="FK_MacBenh_LoaiBenh" Association="Self.FK_MacBenh_LoaiBenh">
-            <End Role="LoaiBenh" EntitySet="LoaiBenh" />
-            <End Role="MacBenh" EntitySet="MacBenh" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyBenhNhanModelStoreContainer" CdmEntityContainer="QuanLyBenhNhanEntities">
+        <EntityContainerMapping StorageEntityContainer="QuanLyBenhNhanModelStoreContainer" CdmEntityContainer="QuanLyBenhNhanEntities1">
           <EntitySetMapping Name="BenhNhan">
             <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BenhNhan">
               <MappingFragment StoreEntitySet="BenhNhan">
@@ -375,6 +383,17 @@
                 <ScalarProperty Name="SDTBN" ColumnName="SDTBN" />
                 <ScalarProperty Name="DiaChiBN" ColumnName="DiaChiBN" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="TuoiBN" ColumnName="TuoiBN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BHYT">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.BHYT">
+              <MappingFragment StoreEntitySet="BHYT">
+                <ScalarProperty Name="MaBHYT" ColumnName="MaBHYT" />
+                <ScalarProperty Name="NgayBDBHYT" ColumnName="NgayBDBHYT" />
+                <ScalarProperty Name="NgatHHBHYT" ColumnName="NgatHHBHYT" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -389,10 +408,20 @@
           <EntitySetMapping Name="DieuTri">
             <EntityTypeMapping TypeName="QuanLyBenhNhanModel.DieuTri">
               <MappingFragment StoreEntitySet="DieuTri">
-                <ScalarProperty Name="NgayDT" ColumnName="NgayDT" />
-                <ScalarProperty Name="ToaThuocDT" ColumnName="ToaThuocDT" />
+                <ScalarProperty Name="NgayDieuTri" ColumnName="NgayDieuTri" />
+                <ScalarProperty Name="NgayXuatVien" ColumnName="NgayXuatVien" />
                 <ScalarProperty Name="MaBN" ColumnName="MaBN" />
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonThuoc">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.DonThuoc">
+              <MappingFragment StoreEntitySet="DonThuoc">
+                <ScalarProperty Name="MaDT" ColumnName="MaDT" />
+                <ScalarProperty Name="TenDT" ColumnName="TenDT" />
+                <ScalarProperty Name="CachSuDung" ColumnName="CachSuDung" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -404,20 +433,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiBenh">
-            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.LoaiBenh">
-              <MappingFragment StoreEntitySet="LoaiBenh">
-                <ScalarProperty Name="MaLB" ColumnName="MaLB" />
-                <ScalarProperty Name="TenLB" ColumnName="TenLB" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MacBenh">
             <EntityTypeMapping TypeName="QuanLyBenhNhanModel.MacBenh">
               <MappingFragment StoreEntitySet="MacBenh">
-                <ScalarProperty Name="MaBN" ColumnName="MaBN" />
-                <ScalarProperty Name="MaLB" ColumnName="MaLB" />
-                <ScalarProperty Name="ThoiGianMacBenh" ColumnName="ThoiGianMacBenh" />
+                <ScalarProperty Name="MaBenh" ColumnName="MaBenh" />
+                <ScalarProperty Name="LoaiBenh" ColumnName="LoaiBenh" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -429,8 +449,17 @@
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TuoiNV" ColumnName="TuoiNV" />
                 <ScalarProperty Name="MaCV" ColumnName="MaCV" />
                 <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Thuoc">
+            <EntityTypeMapping TypeName="QuanLyBenhNhanModel.Thuoc">
+              <MappingFragment StoreEntitySet="Thuoc">
+                <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
+                <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
