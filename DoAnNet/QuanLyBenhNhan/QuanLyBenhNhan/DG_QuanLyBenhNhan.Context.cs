@@ -26,7 +26,6 @@ namespace QuanLyBenhNhan
         }
     
         public virtual DbSet<BenhNhan> BenhNhan { get; set; }
-        public virtual DbSet<BHYT> BHYT { get; set; }
         public virtual DbSet<ChucVu> ChucVu { get; set; }
         public virtual DbSet<DieuTri> DieuTri { get; set; }
         public virtual DbSet<DonThuoc> DonThuoc { get; set; }
@@ -34,5 +33,6 @@ namespace QuanLyBenhNhan
         public virtual DbSet<MacBenh> MacBenh { get; set; }
         public virtual DbSet<NhanVien> NhanVien { get; set; }
         public virtual DbSet<Thuoc> Thuoc { get; set; }
+        public virtual DbSet<BHYT> BHYT { get; set; }
     }
 }
