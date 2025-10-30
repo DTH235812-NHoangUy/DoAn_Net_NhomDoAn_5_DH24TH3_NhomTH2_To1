@@ -111,6 +111,54 @@
     <Compile Include="frmDMBenhNhan.Designer.cs">
       <DependentUpon>frmDMBenhNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDMBHYT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMBHYT.Designer.cs">
+      <DependentUpon>frmDMBHYT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMChucVu.Designer.cs">
+      <DependentUpon>frmDMChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMDieuTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMDieuTri.Designer.cs">
+      <DependentUpon>frmDMDieuTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMDonThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMDonThuoc.Designer.cs">
+      <DependentUpon>frmDMDonThuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMKhoa.Designer.cs">
+      <DependentUpon>frmDMKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMMacBenh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMMacBenh.Designer.cs">
+      <DependentUpon>frmDMMacBenh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMNhanVien.Designer.cs">
+      <DependentUpon>frmDMNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMThuoc.Designer.cs">
+      <DependentUpon>frmDMThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +181,30 @@
     </Compile>
     <EmbeddedResource Include="frmDMBenhNhan.resx">
       <DependentUpon>frmDMBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMBHYT.resx">
+      <DependentUpon>frmDMBHYT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMChucVu.resx">
+      <DependentUpon>frmDMChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMDieuTri.resx">
+      <DependentUpon>frmDMDieuTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMDonThuoc.resx">
+      <DependentUpon>frmDMDonThuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMKhoa.resx">
+      <DependentUpon>frmDMKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMMacBenh.resx">
+      <DependentUpon>frmDMMacBenh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMNhanVien.resx">
+      <DependentUpon>frmDMNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMThuoc.resx">
+      <DependentUpon>frmDMThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
