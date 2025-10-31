@@ -17,6 +17,10 @@ namespace QuanLyBenhNhan
             InitializeComponent();
         }
 
-       
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            QuanLyBenhNhan.Functions.Connect();
+
+        }
     }
 }

@@ -165,6 +165,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions.cs" />
     <Compile Include="Khoa.cs">
       <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
     </Compile>
@@ -266,10 +267,10 @@
       <LastGenOutput>DG_QuanLyBenhNhan.cs</LastGenOutput>
     </Content>
     <Content Include="QuanLyBenhNhan.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="QuanLyBenhNhan_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>QuanLyBenhNhan.mdf</DependentUpon>
     </Content>
   </ItemGroup>
