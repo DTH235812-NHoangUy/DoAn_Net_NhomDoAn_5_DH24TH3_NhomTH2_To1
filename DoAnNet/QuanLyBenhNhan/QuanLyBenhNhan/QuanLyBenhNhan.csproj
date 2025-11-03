@@ -58,7 +58,7 @@
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -75,36 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BenhNhan.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BHYT.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ChucVu.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DG_QuanLyBenhNhan.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DG_QuanLyBenhNhan.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DG_QuanLyBenhNhan.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DG_QuanLyBenhNhan.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DG_QuanLyBenhNhan.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DieuTri.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DonThuoc.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
     <Compile Include="frmDMBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +111,11 @@
     <Compile Include="frmDMKhoa.Designer.cs">
       <DependentUpon>frmDMKhoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDMMacBenh.cs">
+    <Compile Include="FrmDMMacBenh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDMMacBenh.Designer.cs">
-      <DependentUpon>frmDMMacBenh.cs</DependentUpon>
+    <Compile Include="FrmDMMacBenh.Designer.cs">
+      <DependentUpon>FrmDMMacBenh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDMNhanVien.cs">
       <SubType>Form</SubType>
@@ -166,20 +136,8 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions.cs" />
-    <Compile Include="Khoa.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MacBenh.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVien.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Thuoc.cs">
-      <DependentUpon>DG_QuanLyBenhNhan.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmDMBenhNhan.resx">
       <DependentUpon>frmDMBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,8 +156,8 @@
     <EmbeddedResource Include="frmDMKhoa.resx">
       <DependentUpon>frmDMKhoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDMMacBenh.resx">
-      <DependentUpon>frmDMMacBenh.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDMMacBenh.resx">
+      <DependentUpon>FrmDMMacBenh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhanVien.resx">
       <DependentUpon>frmDMNhanVien.cs</DependentUpon>
@@ -219,13 +177,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="DG_QuanLyBenhNhan.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DG_QuanLyBenhNhan.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DG_QuanLyBenhNhan.edmx.diagram">
-      <DependentUpon>DG_QuanLyBenhNhan.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -254,25 +205,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DG_QuanLyBenhNhan.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DG_QuanLyBenhNhan.edmx</DependentUpon>
-      <LastGenOutput>DG_QuanLyBenhNhan.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DG_QuanLyBenhNhan.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DG_QuanLyBenhNhan.edmx</DependentUpon>
-      <LastGenOutput>DG_QuanLyBenhNhan.cs</LastGenOutput>
-    </Content>
-    <Content Include="QuanLyBenhNhan.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="QuanLyBenhNhan_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>QuanLyBenhNhan.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

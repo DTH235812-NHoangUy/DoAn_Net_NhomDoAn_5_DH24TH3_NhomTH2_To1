@@ -13,6 +13,7 @@
     <Property Name="TuoiBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="DieuTri" Relationship="Self.FK_DieuTri_BenhNhan" FromRole="BenhNhan" ToRole="DieuTri" />
     <NavigationProperty Name="MacBenh" Relationship="Self.FK_MacBenh_BenhNhan" FromRole="BenhNhan" ToRole="MacBenh" />
+    <NavigationProperty Name="BHYT" Relationship="QuanLyBenhNhanModel.BHYTBenhNhan" FromRole="BenhNhan" ToRole="BHYT" />
   </EntityType>
   <EntityType Name="ChucVu">
     <Key>
@@ -43,6 +44,8 @@
     <Property Name="TenDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CachSuDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DonViTinh" Type="Int32" />
+    <NavigationProperty Name="Thuoc" Relationship="QuanLyBenhNhanModel.ThuocDonThuoc" FromRole="DonThuoc" ToRole="Thuoc" />
+    <NavigationProperty Name="NhanVien" Relationship="QuanLyBenhNhanModel.NhanVienDonThuoc" FromRole="DonThuoc" ToRole="NhanVien" />
   </EntityType>
   <EntityType Name="Khoa">
     <Key>
@@ -76,6 +79,7 @@
     <NavigationProperty Name="ChucVu" Relationship="Self.FK_NhanVien_ChucVu" FromRole="NhanVien" ToRole="ChucVu" />
     <NavigationProperty Name="DieuTri" Relationship="Self.FK_DieuTri_NhanVien" FromRole="NhanVien" ToRole="DieuTri" />
     <NavigationProperty Name="Khoa" Relationship="Self.FK_NhanVien_Khoa" FromRole="NhanVien" ToRole="Khoa" />
+    <NavigationProperty Name="DonThuoc" Relationship="QuanLyBenhNhanModel.NhanVienDonThuoc" FromRole="NhanVien" ToRole="DonThuoc" />
   </EntityType>
   <EntityType Name="Thuoc">
     <Key>
@@ -83,6 +87,7 @@
     </Key>
     <Property Name="MaThuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TenThuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DonThuoc" Relationship="QuanLyBenhNhanModel.ThuocDonThuoc" FromRole="Thuoc" ToRole="DonThuoc" />
   </EntityType>
   <Association Name="FK_DieuTri_BenhNhan">
     <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
@@ -174,6 +179,18 @@
       <End Role="NhanVien" EntitySet="NhanVien" />
     </AssociationSet>
     <EntitySet Name="BHYT" EntityType="QuanLyBenhNhanModel.BHYT" />
+    <AssociationSet Name="ThuocDonThuoc" Association="QuanLyBenhNhanModel.ThuocDonThuoc">
+      <End Role="Thuoc" EntitySet="Thuoc" />
+      <End Role="DonThuoc" EntitySet="DonThuoc" />
+    </AssociationSet>
+    <AssociationSet Name="NhanVienDonThuoc" Association="QuanLyBenhNhanModel.NhanVienDonThuoc">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DonThuoc" EntitySet="DonThuoc" />
+    </AssociationSet>
+    <AssociationSet Name="BHYTBenhNhan" Association="QuanLyBenhNhanModel.BHYTBenhNhan">
+      <End Role="BHYT" EntitySet="BHYT" />
+      <End Role="BenhNhan" EntitySet="BenhNhan" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BHYT">
     <Key>
@@ -183,5 +200,18 @@
     <Property Name="NgayBDBHYT" Type="DateTime" Precision="0" />
     <Property Name="NgayHHBHYT" Type="DateTime" Precision="0" />
     <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BenhNhan" Relationship="QuanLyBenhNhanModel.BHYTBenhNhan" FromRole="BHYT" ToRole="BenhNhan" />
   </EntityType>
+  <Association Name="ThuocDonThuoc">
+    <End Type="QuanLyBenhNhanModel.Thuoc" Role="Thuoc" Multiplicity="1" />
+    <End Type="QuanLyBenhNhanModel.DonThuoc" Role="DonThuoc" Multiplicity="*" />
+  </Association>
+  <Association Name="NhanVienDonThuoc">
+    <End Type="QuanLyBenhNhanModel.NhanVien" Role="NhanVien" Multiplicity="1" />
+    <End Type="QuanLyBenhNhanModel.DonThuoc" Role="DonThuoc" Multiplicity="*" />
+  </Association>
+  <Association Name="BHYTBenhNhan">
+    <End Type="QuanLyBenhNhanModel.BHYT" Role="BHYT" Multiplicity="1" />
+    <End Type="QuanLyBenhNhanModel.BenhNhan" Role="BenhNhan" Multiplicity="*" />
+  </Association>
 </Schema>

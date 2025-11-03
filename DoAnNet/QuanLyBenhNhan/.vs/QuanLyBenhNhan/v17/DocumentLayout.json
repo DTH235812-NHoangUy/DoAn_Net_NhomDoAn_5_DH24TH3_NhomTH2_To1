@@ -1,0 +1,185 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\frmdmmacbenh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\frmdmmacbenh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\frmdmmacbenh.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\frmdmmacbenh.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\frmdmbenhnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\frmdmbenhnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\frmdmmacbenh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\frmdmmacbenh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|c:\\users\\admin\\source\\repos\\doan_net_nhomdoan_5_dh24th3_nhomth2_to1\\doannet\\quanlybenhnhan\\quanlybenhnhan\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6009C1FA-8B6F-4A17-AF2F-7B9FE81E358E}|QuanLyBenhNhan\\QuanLyBenhNhan.csproj|solutionrelative:quanlybenhnhan\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 287,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmDMMacBenh.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Source\\Repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\FrmDMMacBenh.Designer.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\FrmDMMacBenh.Designer.cs",
+              "ToolTip": "C:\\Users\\Admin\\Source\\Repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\FrmDMMacBenh.Designer.cs",
+              "RelativeToolTip": "QuanLyBenhNhan\\FrmDMMacBenh.Designer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwNkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T11:15:06.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmDMMacBenh.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\FrmDMMacBenh.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\FrmDMMacBenh.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\FrmDMMacBenh.cs*",
+              "RelativeToolTip": "QuanLyBenhNhan\\FrmDMMacBenh.cs*",
+              "ViewState": "AgIAACoAAAAAAAAAAADwvzoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T09:33:51.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmDMBenhNhan.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\frmDMBenhNhan.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\frmDMBenhNhan.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\frmDMBenhNhan.cs",
+              "RelativeToolTip": "QuanLyBenhNhan\\frmDMBenhNhan.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T10:06:22.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\frmMain.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\frmMain.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\frmMain.cs [Design]",
+              "RelativeToolTip": "QuanLyBenhNhan\\frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T09:41:04.551Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmDMMacBenh.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\FrmDMMacBenh.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\FrmDMMacBenh.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\FrmDMMacBenh.cs [Design]*",
+              "RelativeToolTip": "QuanLyBenhNhan\\FrmDMMacBenh.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T09:32:40.035Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Functions.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\Functions.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\Functions.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\Functions.cs",
+              "RelativeToolTip": "QuanLyBenhNhan\\Functions.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T09:15:54.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\frmMain.cs",
+              "RelativeDocumentMoniker": "QuanLyBenhNhan\\frmMain.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\\DoAnNet\\QuanLyBenhNhan\\QuanLyBenhNhan\\frmMain.cs",
+              "RelativeToolTip": "QuanLyBenhNhan\\frmMain.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAIwCwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T09:20:00.129Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 559,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 563,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
