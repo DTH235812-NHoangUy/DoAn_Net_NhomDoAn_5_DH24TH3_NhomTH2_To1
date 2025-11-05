@@ -281,6 +281,7 @@ namespace QuanLyBenhNhan
             btnLuu.Enabled = false;
         }
 
+        
     }
 }
 

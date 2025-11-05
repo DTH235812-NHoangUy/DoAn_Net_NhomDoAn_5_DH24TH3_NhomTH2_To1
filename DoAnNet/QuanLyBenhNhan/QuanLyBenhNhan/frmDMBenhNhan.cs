@@ -304,6 +304,6 @@ namespace QuanLyBenhNhan
             this.Close();
         }
 
-        
+       
     }
 }

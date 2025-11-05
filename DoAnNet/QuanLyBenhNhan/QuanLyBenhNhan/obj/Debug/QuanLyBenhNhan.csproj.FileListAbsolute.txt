@@ -16,8 +16,6 @@ D:\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan
 D:\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe
 D:\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.pdb
 D:\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe.config
-D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.mdf
-D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan_log.ldf
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.exe.config
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.exe
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.pdb
