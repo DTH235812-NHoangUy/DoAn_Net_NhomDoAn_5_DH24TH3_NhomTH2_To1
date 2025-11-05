@@ -55,30 +55,30 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 108);
+            this.panel1.Size = new System.Drawing.Size(800, 166);
             this.panel1.TabIndex = 0;
             // 
             // txtTenKhoa
             // 
-            this.txtTenKhoa.Location = new System.Drawing.Point(428, 30);
+            this.txtTenKhoa.Location = new System.Drawing.Point(330, 91);
             this.txtTenKhoa.Name = "txtTenKhoa";
-            this.txtTenKhoa.Size = new System.Drawing.Size(163, 20);
+            this.txtTenKhoa.Size = new System.Drawing.Size(163, 26);
             this.txtTenKhoa.TabIndex = 3;
             // 
             // txtMaKhoa
             // 
-            this.txtMaKhoa.Location = new System.Drawing.Point(168, 30);
+            this.txtMaKhoa.Location = new System.Drawing.Point(330, 45);
             this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.Size = new System.Drawing.Size(152, 20);
+            this.txtMaKhoa.Size = new System.Drawing.Size(163, 26);
             this.txtMaKhoa.TabIndex = 2;
             // 
             // lblTenKhoa
             // 
             this.lblTenKhoa.AutoSize = true;
             this.lblTenKhoa.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenKhoa.Location = new System.Drawing.Point(365, 33);
+            this.lblTenKhoa.Location = new System.Drawing.Point(241, 94);
             this.lblTenKhoa.Name = "lblTenKhoa";
-            this.lblTenKhoa.Size = new System.Drawing.Size(57, 14);
+            this.lblTenKhoa.Size = new System.Drawing.Size(79, 19);
             this.lblTenKhoa.TabIndex = 1;
             this.lblTenKhoa.Text = "Tên Khoa:";
             // 
@@ -86,9 +86,9 @@
             // 
             this.lblMaKhoa.AutoSize = true;
             this.lblMaKhoa.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaKhoa.Location = new System.Drawing.Point(109, 33);
+            this.lblMaKhoa.Location = new System.Drawing.Point(244, 45);
             this.lblMaKhoa.Name = "lblMaKhoa";
-            this.lblMaKhoa.Size = new System.Drawing.Size(53, 14);
+            this.lblMaKhoa.Size = new System.Drawing.Size(76, 19);
             this.lblMaKhoa.TabIndex = 0;
             this.lblMaKhoa.Text = "Mã Khoa:";
             // 
@@ -176,15 +176,16 @@
             // 
             this.dgvKhoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKhoa.Location = new System.Drawing.Point(0, 108);
+            this.dgvKhoa.Location = new System.Drawing.Point(0, 166);
             this.dgvKhoa.Name = "dgvKhoa";
-            this.dgvKhoa.Size = new System.Drawing.Size(800, 269);
+            this.dgvKhoa.RowHeadersWidth = 62;
+            this.dgvKhoa.Size = new System.Drawing.Size(800, 211);
             this.dgvKhoa.TabIndex = 2;
             this.dgvKhoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoa_CellClick);
             // 
             // frmDMKhoa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 485);
             this.Controls.Add(this.dgvKhoa);

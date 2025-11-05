@@ -164,15 +164,15 @@ namespace QuanLyBenhNhan
                 return;
             }
 
-            string sql = "UPDATE Khoa SET TenKhoa= @TenKhoa WHERE MaKhoa = @MaKhoa";
-
+            string sql = "UPDATE Khoa SET TenKhoa = @TenKhoa WHERE MaKhoa = @MaKhoa";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
-            {
-                cmd.Parameters.AddWithValue("@TenCV", txtTenKhoa.Text.Trim());
-                cmd.Parameters.AddWithValue("@MaCV", txtMaKhoa.Text.Trim());
+            {               
+                cmd.Parameters.AddWithValue("@MaKhoa", txtMaKhoa.Text.Trim());
+                cmd.Parameters.AddWithValue("@TenKhoa", txtTenKhoa.Text.Trim());
                 cmd.ExecuteNonQuery();
             }
+
 
             LoadDataGridView();
             MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

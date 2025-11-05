@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyBenhNhan
@@ -28,70 +23,41 @@ namespace QuanLyBenhNhan
             Functions.Connect(); // nếu có lớp Functions riêng
             LoadDataGridView();
 
+
         }
 
         
-            private void LoadDataGridView()
+        private void LoadDataGridView()
         {
             string sql = "SELECT MaBenh, LoaiBenh FROM MacBenh";
             DataTable tblMacBenh = Functions.GetDataToTable(sql);
             dgvMacBenh.DataSource = tblMacBenh;
+            tblMB = Functions.GetDataToTable(sql);
+            dgvMacBenh.DataSource = tblMB;
+            // Lấy dữ liệu ra DataTable
+            DataTable tblThuoc = Functions.GetDataToTable(sql);
 
-            // Căn tiêu đề cột
-            dgvMacBenh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            // Gán dữ liệu cho DataGridView
+            dgvMacBenh.DataSource = tblThuoc;
 
-            // Căn giữa nội dung các ô
-            dgvMacBenh.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            // --- Đặt tiêu đề cột ---
+            dgvMacBenh.Columns["MaThuoc"].HeaderText = "Mã thuốc";
+            dgvMacBenh.Columns["TenThuoc"].HeaderText = "Tên thuốc";
 
-            // Tự động giãn cột cho vừa bảng
-            dgvMacBenh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // --- Căn chỉnh hiển thị ---
+            dgvMacBenh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // căn giữa tiêu đề
+            dgvMacBenh.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;              // căn giữa nội dung
+            dgvMacBenh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;                          // giãn đều cột
+            dgvMacBenh.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;                            // tự căn dòng
 
-            // Không cho người dùng thêm/xóa dòng trực tiếp
+            // --- Tùy chọn hiển thị ---
             dgvMacBenh.AllowUserToAddRows = false;
             dgvMacBenh.AllowUserToDeleteRows = false;
-
-            // Không hiển thị cột chỉ số đầu (ô xám bên trái)
-            dgvMacBenh.RowHeadersVisible = false;
-
-            // Tự động căn dòng cao vừa chữ
-            dgvMacBenh.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-      
-          
-
-            // Đặt màu xen kẽ cho dễ nhìn (tuỳ chọn)
-            dgvMacBenh.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-
-            // Đặt tiêu đề cột
-            dgvMacBenh.Columns["MaBenh"].HeaderText = "Mã Bệnh";
-            dgvMacBenh.Columns["LoaiBenh"].HeaderText = "Loại Bệnh";
-        
-
-        
-            // Câu lệnh SQL: chọn tất cả dữ liệu trong bảng MacBenh
-           
-
-            // Lấy dữ liệu ra DataTable
-            tblMB = Functions.GetDataToTable(sql);
-
-            // Gán nguồn dữ liệu cho DataGridView
-            dgvMacBenh.DataSource = tblMB;
-
-            // Đặt lại tiêu đề cột
-            dgvMacBenh.Columns["MaBenh"].HeaderText = "Mã Bệnh";
-            dgvMacBenh.Columns["LoaiBenh"].HeaderText = "Loại Bệnh";
-
-            // Căn giữa nội dung
-            dgvMacBenh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvMacBenh.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            // Tự động giãn cột cho đều bảng
-            dgvMacBenh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // Tắt chỉnh sửa thủ công
-            dgvMacBenh.AllowUserToAddRows = false;
             dgvMacBenh.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvMacBenh.RowHeadersVisible = false;
+            dgvMacBenh.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
         }
+
         private void ResetValue()
         {
             txtMaBenh.Text = "";
@@ -209,8 +175,7 @@ namespace QuanLyBenhNhan
             if (confirm == DialogResult.No)
                 return;
 
-            try
-            {
+           
                 string sql = "DELETE FROM MacBenh WHERE MaBenh = @MaBenh";
                 using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
                 {
@@ -222,11 +187,8 @@ namespace QuanLyBenhNhan
                 txtMaBenh.Text = "";
                 txtLoaiBenh.Text = "";
                 MessageBox.Show("Đã xóa bệnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+            
         }
 
 

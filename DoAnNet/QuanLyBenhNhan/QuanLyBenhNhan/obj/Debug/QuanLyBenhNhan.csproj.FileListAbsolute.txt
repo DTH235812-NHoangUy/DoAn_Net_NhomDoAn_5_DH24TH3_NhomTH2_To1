@@ -41,8 +41,6 @@ D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDM
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMMacBenh.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMNhanVien.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMThuoc.resources
-C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.mdf
-C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan_log.ldf
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.exe.config
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.exe
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\QuanLyBenhNhan.pdb

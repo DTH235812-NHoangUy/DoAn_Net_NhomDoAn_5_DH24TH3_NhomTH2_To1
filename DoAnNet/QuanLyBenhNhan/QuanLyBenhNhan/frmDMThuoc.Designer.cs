@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnBoQua = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.lblMaThuoc = new System.Windows.Forms.Label();
-            this.lblTenThuoc = new System.Windows.Forms.Label();
-            this.txtMaThuoc = new System.Windows.Forms.TextBox();
             this.txtTenThuoc = new System.Windows.Forms.TextBox();
+            this.txtMaThuoc = new System.Windows.Forms.TextBox();
+            this.lblTenThuoc = new System.Windows.Forms.Label();
+            this.lblMaThuoc = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnBoQua = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.dgvThuoc = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThuoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,9 +54,46 @@
             this.panel1.Controls.Add(this.lblMaThuoc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 108);
+            this.panel1.Size = new System.Drawing.Size(1200, 166);
             this.panel1.TabIndex = 0;
+            // 
+            // txtTenThuoc
+            // 
+            this.txtTenThuoc.Location = new System.Drawing.Point(544, 96);
+            this.txtTenThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTenThuoc.Name = "txtTenThuoc";
+            this.txtTenThuoc.Size = new System.Drawing.Size(248, 26);
+            this.txtTenThuoc.TabIndex = 3;
+            // 
+            // txtMaThuoc
+            // 
+            this.txtMaThuoc.Location = new System.Drawing.Point(544, 45);
+            this.txtMaThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaThuoc.Name = "txtMaThuoc";
+            this.txtMaThuoc.Size = new System.Drawing.Size(248, 26);
+            this.txtMaThuoc.TabIndex = 2;
+            // 
+            // lblTenThuoc
+            // 
+            this.lblTenThuoc.AutoSize = true;
+            this.lblTenThuoc.Location = new System.Drawing.Point(441, 101);
+            this.lblTenThuoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTenThuoc.Name = "lblTenThuoc";
+            this.lblTenThuoc.Size = new System.Drawing.Size(88, 20);
+            this.lblTenThuoc.TabIndex = 1;
+            this.lblTenThuoc.Text = "Tên Thuốc:";
+            // 
+            // lblMaThuoc
+            // 
+            this.lblMaThuoc.AutoSize = true;
+            this.lblMaThuoc.Location = new System.Drawing.Point(441, 51);
+            this.lblMaThuoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaThuoc.Name = "lblMaThuoc";
+            this.lblMaThuoc.Size = new System.Drawing.Size(83, 20);
+            this.lblMaThuoc.TabIndex = 0;
+            this.lblMaThuoc.Text = "Mã Thuốc:";
             // 
             // panel2
             // 
@@ -67,120 +104,112 @@
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnThem);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 350);
+            this.panel2.Location = new System.Drawing.Point(0, 538);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 100);
+            this.panel2.Size = new System.Drawing.Size(1200, 154);
             this.panel2.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 108);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 242);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(111, 31);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(227, 31);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 1;
-            this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Location = new System.Drawing.Point(340, 31);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 2;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Location = new System.Drawing.Point(453, 31);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
-            this.btnLuu.TabIndex = 3;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            // 
-            // btnBoQua
-            // 
-            this.btnBoQua.Location = new System.Drawing.Point(552, 31);
-            this.btnBoQua.Name = "btnBoQua";
-            this.btnBoQua.Size = new System.Drawing.Size(75, 23);
-            this.btnBoQua.TabIndex = 4;
-            this.btnBoQua.Text = "Bỏ Qua";
-            this.btnBoQua.UseVisualStyleBackColor = true;
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(655, 31);
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(982, 48);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.Size = new System.Drawing.Size(112, 35);
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // lblMaThuoc
+            // btnBoQua
             // 
-            this.lblMaThuoc.AutoSize = true;
-            this.lblMaThuoc.Location = new System.Drawing.Point(157, 27);
-            this.lblMaThuoc.Name = "lblMaThuoc";
-            this.lblMaThuoc.Size = new System.Drawing.Size(59, 13);
-            this.lblMaThuoc.TabIndex = 0;
-            this.lblMaThuoc.Text = "Mã Thuốc:";
+            this.btnBoQua.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoQua.Location = new System.Drawing.Point(828, 48);
+            this.btnBoQua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBoQua.Name = "btnBoQua";
+            this.btnBoQua.Size = new System.Drawing.Size(112, 35);
+            this.btnBoQua.TabIndex = 4;
+            this.btnBoQua.Text = "Bỏ Qua";
+            this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
-            // lblTenThuoc
+            // btnLuu
             // 
-            this.lblTenThuoc.AutoSize = true;
-            this.lblTenThuoc.Location = new System.Drawing.Point(414, 27);
-            this.lblTenThuoc.Name = "lblTenThuoc";
-            this.lblTenThuoc.Size = new System.Drawing.Size(63, 13);
-            this.lblTenThuoc.TabIndex = 1;
-            this.lblTenThuoc.Text = "Tên Thuốc:";
+            this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(680, 48);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(112, 35);
+            this.btnLuu.TabIndex = 3;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // txtMaThuoc
+            // btnSua
             // 
-            this.txtMaThuoc.Location = new System.Drawing.Point(222, 24);
-            this.txtMaThuoc.Name = "txtMaThuoc";
-            this.txtMaThuoc.Size = new System.Drawing.Size(100, 20);
-            this.txtMaThuoc.TabIndex = 2;
+            this.btnSua.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Location = new System.Drawing.Point(510, 48);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(112, 35);
+            this.btnSua.TabIndex = 2;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // txtTenThuoc
+            // btnXoa
             // 
-            this.txtTenThuoc.Location = new System.Drawing.Point(483, 24);
-            this.txtTenThuoc.Name = "txtTenThuoc";
-            this.txtTenThuoc.Size = new System.Drawing.Size(100, 20);
-            this.txtTenThuoc.TabIndex = 3;
+            this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(340, 48);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(112, 35);
+            this.btnXoa.TabIndex = 1;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Location = new System.Drawing.Point(166, 48);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(112, 35);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // dgvThuoc
+            // 
+            this.dgvThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThuoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvThuoc.Location = new System.Drawing.Point(0, 166);
+            this.dgvThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvThuoc.Name = "dgvThuoc";
+            this.dgvThuoc.RowHeadersWidth = 62;
+            this.dgvThuoc.Size = new System.Drawing.Size(1200, 372);
+            this.dgvThuoc.TabIndex = 2;
+            this.dgvThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThuoc_CellClick);
             // 
             // frmDMThuoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.dgvThuoc);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmDMThuoc";
             this.Text = "Thuốc";
+            this.Load += new System.EventHandler(this.frmDMThuoc_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThuoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,7 +218,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvThuoc;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnBoQua;
         private System.Windows.Forms.Button btnLuu;

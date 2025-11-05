@@ -55,38 +55,38 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 108);
+            this.panel1.Size = new System.Drawing.Size(922, 175);
             this.panel1.TabIndex = 0;
             // 
             // txtTenCV
             // 
-            this.txtTenCV.Location = new System.Drawing.Point(472, 34);
+            this.txtTenCV.Location = new System.Drawing.Point(424, 102);
             this.txtTenCV.Name = "txtTenCV";
-            this.txtTenCV.Size = new System.Drawing.Size(126, 20);
+            this.txtTenCV.Size = new System.Drawing.Size(157, 26);
             this.txtTenCV.TabIndex = 3;
             // 
             // txtMaCV
             // 
-            this.txtMaCV.Location = new System.Drawing.Point(213, 34);
+            this.txtMaCV.Location = new System.Drawing.Point(424, 41);
             this.txtMaCV.Name = "txtMaCV";
-            this.txtMaCV.Size = new System.Drawing.Size(124, 20);
+            this.txtMaCV.Size = new System.Drawing.Size(157, 26);
             this.txtMaCV.TabIndex = 2;
             // 
             // lblTenCV
             // 
             this.lblTenCV.AutoSize = true;
-            this.lblTenCV.Location = new System.Drawing.Point(393, 38);
+            this.lblTenCV.Location = new System.Drawing.Point(298, 105);
             this.lblTenCV.Name = "lblTenCV";
-            this.lblTenCV.Size = new System.Drawing.Size(71, 14);
+            this.lblTenCV.Size = new System.Drawing.Size(102, 19);
             this.lblTenCV.TabIndex = 1;
             this.lblTenCV.Text = "Tên Chức Vụ:";
             // 
             // lblMaCV
             // 
             this.lblMaCV.AutoSize = true;
-            this.lblMaCV.Location = new System.Drawing.Point(141, 38);
+            this.lblMaCV.Location = new System.Drawing.Point(298, 41);
             this.lblMaCV.Name = "lblMaCV";
-            this.lblMaCV.Size = new System.Drawing.Size(67, 14);
+            this.lblMaCV.Size = new System.Drawing.Size(99, 19);
             this.lblMaCV.TabIndex = 0;
             this.lblMaCV.Text = "Mã Chức Vụ:";
             // 
@@ -99,9 +99,9 @@
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnThem);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 377);
+            this.panel2.Location = new System.Drawing.Point(0, 532);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 108);
+            this.panel2.Size = new System.Drawing.Size(922, 108);
             this.panel2.TabIndex = 1;
             // 
             // btnThoat
@@ -168,17 +168,18 @@
             // 
             this.dgvChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvChucVu.Location = new System.Drawing.Point(0, 108);
+            this.dgvChucVu.Location = new System.Drawing.Point(0, 175);
             this.dgvChucVu.Name = "dgvChucVu";
-            this.dgvChucVu.Size = new System.Drawing.Size(800, 269);
+            this.dgvChucVu.RowHeadersWidth = 62;
+            this.dgvChucVu.Size = new System.Drawing.Size(922, 357);
             this.dgvChucVu.TabIndex = 2;
             this.dgvChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellClick);
             // 
             // frmDMChucVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 485);
+            this.ClientSize = new System.Drawing.Size(922, 640);
             this.Controls.Add(this.dgvChucVu);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

@@ -54,7 +54,7 @@
             this.dgvMacBenh.Location = new System.Drawing.Point(0, 108);
             this.dgvMacBenh.Name = "dgvMacBenh";
             this.dgvMacBenh.RowHeadersWidth = 62;
-            this.dgvMacBenh.Size = new System.Drawing.Size(846, 249);
+            this.dgvMacBenh.Size = new System.Drawing.Size(906, 249);
             this.dgvMacBenh.TabIndex = 5;
             this.dgvMacBenh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMacBenh_CellClick);
             // 
@@ -69,7 +69,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 357);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(846, 108);
+            this.panel2.Size = new System.Drawing.Size(906, 108);
             this.panel2.TabIndex = 4;
             // 
             // btnThoat
@@ -147,21 +147,21 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(846, 108);
+            this.panel1.Size = new System.Drawing.Size(906, 108);
             this.panel1.TabIndex = 3;
             // 
             // txtLoaiBenh
             // 
-            this.txtLoaiBenh.Location = new System.Drawing.Point(342, 62);
+            this.txtLoaiBenh.Location = new System.Drawing.Point(364, 60);
             this.txtLoaiBenh.Name = "txtLoaiBenh";
-            this.txtLoaiBenh.Size = new System.Drawing.Size(160, 20);
+            this.txtLoaiBenh.Size = new System.Drawing.Size(228, 26);
             this.txtLoaiBenh.TabIndex = 3;
             // 
             // txtMaBenh
             // 
-            this.txtMaBenh.Location = new System.Drawing.Point(342, 29);
+            this.txtMaBenh.Location = new System.Drawing.Point(364, 28);
             this.txtMaBenh.Name = "txtMaBenh";
-            this.txtMaBenh.Size = new System.Drawing.Size(160, 20);
+            this.txtMaBenh.Size = new System.Drawing.Size(228, 26);
             this.txtMaBenh.TabIndex = 2;
             // 
             // lblLoaiBenh
@@ -169,7 +169,7 @@
             this.lblLoaiBenh.AutoSize = true;
             this.lblLoaiBenh.Location = new System.Drawing.Point(281, 66);
             this.lblLoaiBenh.Name = "lblLoaiBenh";
-            this.lblLoaiBenh.Size = new System.Drawing.Size(58, 14);
+            this.lblLoaiBenh.Size = new System.Drawing.Size(84, 19);
             this.lblLoaiBenh.TabIndex = 1;
             this.lblLoaiBenh.Text = "Loại Bệnh:";
             // 
@@ -178,15 +178,15 @@
             this.lblMaBenh.AutoSize = true;
             this.lblMaBenh.Location = new System.Drawing.Point(283, 31);
             this.lblMaBenh.Name = "lblMaBenh";
-            this.lblMaBenh.Size = new System.Drawing.Size(52, 14);
+            this.lblMaBenh.Size = new System.Drawing.Size(75, 19);
             this.lblMaBenh.TabIndex = 0;
             this.lblMaBenh.Text = "Mã Bệnh:";
             // 
             // frmDMMacBenh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 465);
+            this.ClientSize = new System.Drawing.Size(906, 465);
             this.Controls.Add(this.dgvMacBenh);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -194,6 +194,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDMMacBenh";
             this.Text = "Mắc Bệnh";
+            
             ((System.ComponentModel.ISupportInitialize)(this.dgvMacBenh)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

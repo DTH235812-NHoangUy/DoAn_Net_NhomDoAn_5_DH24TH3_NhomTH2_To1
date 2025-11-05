@@ -70,10 +70,11 @@ namespace QuanLyBenhNhan
         private void LoadDataGridView()
         {
             string sql = "SELECT NV.MaNV, NV.HoTenNV, NV.GioiTinhNV, NV.TuoiNV, NV.SDTNV, " +
-             "K.TenKhoa AS TenKhoa, CV.TenCV AS TenCV, NV.MaKhoa, NV.MaCV " +
+             "NV.MaKhoa, K.TenKhoa AS TenKhoa, NV.MaCV, CV.TenCV AS TenCV " +  // ← thêm dấu cách trước FROM
              "FROM NhanVien NV " +
              "LEFT JOIN Khoa K ON NV.MaKhoa = K.MaKhoa " +
              "LEFT JOIN ChucVu CV ON NV.MaCV = CV.MaCV";
+
 
 
 

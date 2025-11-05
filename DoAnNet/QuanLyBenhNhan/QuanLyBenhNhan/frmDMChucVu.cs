@@ -175,8 +175,8 @@ namespace QuanLyBenhNhan
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
-                cmd.Parameters.AddWithValue("@TenCV", txtTenCV.Text.Trim());
                 cmd.Parameters.AddWithValue("@MaCV", txtMaCV.Text.Trim());
+                cmd.Parameters.AddWithValue("@TenCV", txtTenCV.Text.Trim());
                 cmd.ExecuteNonQuery();
             }
 
@@ -280,6 +280,8 @@ namespace QuanLyBenhNhan
             btnBoQua.Enabled = true;
             btnLuu.Enabled = false;
         }
+
+        
     }
 }
 

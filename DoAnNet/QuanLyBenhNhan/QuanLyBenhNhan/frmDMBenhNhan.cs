@@ -42,7 +42,7 @@ namespace QuanLyBenhNhan
         private void LoadDataGridView()
         {
             string sql = "SELECT BN.MaBN, BN.HoTenBN, BN.GioiTinh, BN.TuoiBN, BN.NgaySinh, " +
-                         "BN.DiaChiBN, BN.SDTBN, MB.LoaiBenh, BN.MaBenh " +
+                         "BN.DiaChiBN, BN.SDTBN, BN.MaBenh, MB.LoaiBenh " +
                          "FROM BenhNhan BN LEFT JOIN MacBenh MB ON BN.MaBenh = MB.MaBenh";
 
             tblBN = Functions.GetDataToTable(sql);
