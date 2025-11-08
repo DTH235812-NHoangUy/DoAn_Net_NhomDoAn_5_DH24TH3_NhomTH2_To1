@@ -30,19 +30,19 @@ namespace QuanLyBenhNhan
         private void LoadDataGridView()
         {
             string sql = "SELECT MaBenh, LoaiBenh FROM MacBenh";
-            DataTable tblMacBenh = Functions.GetDataToTable(sql);
-            dgvMacBenh.DataSource = tblMacBenh;
+            DataTable tblMB = Functions.GetDataToTable(sql);
+            dgvMacBenh.DataSource = tblMB;
             tblMB = Functions.GetDataToTable(sql);
             dgvMacBenh.DataSource = tblMB;
             // Lấy dữ liệu ra DataTable
-            DataTable tblThuoc = Functions.GetDataToTable(sql);
+            
 
             // Gán dữ liệu cho DataGridView
-            dgvMacBenh.DataSource = tblThuoc;
+            dgvMacBenh.DataSource = tblMB;
 
             // --- Đặt tiêu đề cột ---
-            dgvMacBenh.Columns["MaThuoc"].HeaderText = "Mã thuốc";
-            dgvMacBenh.Columns["TenThuoc"].HeaderText = "Tên thuốc";
+            dgvMacBenh.Columns["MaBenh"].HeaderText = "Mã bệnh";
+            dgvMacBenh.Columns["LoaiBenh"].HeaderText = "Loại bệnh";
 
             // --- Căn chỉnh hiển thị ---
             dgvMacBenh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // căn giữa tiêu đề

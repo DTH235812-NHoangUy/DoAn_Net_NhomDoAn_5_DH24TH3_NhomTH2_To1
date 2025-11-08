@@ -86,7 +86,7 @@
             // btnBoQua
             // 
             this.btnBoQua.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoQua.Location = new System.Drawing.Point(542, 33);
+            this.btnBoQua.Location = new System.Drawing.Point(535, 36);
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Size = new System.Drawing.Size(75, 25);
             this.btnBoQua.TabIndex = 4;
@@ -97,7 +97,7 @@
             // btnLuu
             // 
             this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(436, 33);
+            this.btnLuu.Location = new System.Drawing.Point(433, 36);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 28);
             this.btnLuu.TabIndex = 3;
@@ -108,7 +108,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(333, 33);
+            this.btnSua.Location = new System.Drawing.Point(333, 36);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(79, 28);
             this.btnSua.TabIndex = 2;
@@ -119,7 +119,7 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(239, 36);
+            this.btnXoa.Location = new System.Drawing.Point(239, 39);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 25);
             this.btnXoa.TabIndex = 1;
@@ -130,7 +130,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(146, 36);
+            this.btnThem.Location = new System.Drawing.Point(146, 39);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 25);
             this.btnThem.TabIndex = 0;
@@ -154,14 +154,14 @@
             // 
             this.txtLoaiBenh.Location = new System.Drawing.Point(364, 60);
             this.txtLoaiBenh.Name = "txtLoaiBenh";
-            this.txtLoaiBenh.Size = new System.Drawing.Size(228, 26);
+            this.txtLoaiBenh.Size = new System.Drawing.Size(228, 20);
             this.txtLoaiBenh.TabIndex = 3;
             // 
             // txtMaBenh
             // 
             this.txtMaBenh.Location = new System.Drawing.Point(364, 28);
             this.txtMaBenh.Name = "txtMaBenh";
-            this.txtMaBenh.Size = new System.Drawing.Size(228, 26);
+            this.txtMaBenh.Size = new System.Drawing.Size(228, 20);
             this.txtMaBenh.TabIndex = 2;
             // 
             // lblLoaiBenh
@@ -169,7 +169,7 @@
             this.lblLoaiBenh.AutoSize = true;
             this.lblLoaiBenh.Location = new System.Drawing.Point(281, 66);
             this.lblLoaiBenh.Name = "lblLoaiBenh";
-            this.lblLoaiBenh.Size = new System.Drawing.Size(84, 19);
+            this.lblLoaiBenh.Size = new System.Drawing.Size(58, 14);
             this.lblLoaiBenh.TabIndex = 1;
             this.lblLoaiBenh.Text = "Loại Bệnh:";
             // 
@@ -178,13 +178,13 @@
             this.lblMaBenh.AutoSize = true;
             this.lblMaBenh.Location = new System.Drawing.Point(283, 31);
             this.lblMaBenh.Name = "lblMaBenh";
-            this.lblMaBenh.Size = new System.Drawing.Size(75, 19);
+            this.lblMaBenh.Size = new System.Drawing.Size(52, 14);
             this.lblMaBenh.TabIndex = 0;
             this.lblMaBenh.Text = "Mã Bệnh:";
             // 
             // frmDMMacBenh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 465);
             this.Controls.Add(this.dgvMacBenh);
@@ -194,7 +194,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDMMacBenh";
             this.Text = "Mắc Bệnh";
-            
             ((System.ComponentModel.ISupportInitialize)(this.dgvMacBenh)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

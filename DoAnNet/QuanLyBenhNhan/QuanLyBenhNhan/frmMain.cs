@@ -60,7 +60,7 @@ namespace QuanLyBenhNhan
 
         }
 
-        private void mnuChuVu_Click(object sender, EventArgs e)
+        private void mnuChucVu_Click(object sender, EventArgs e)
         {
             frmDMChucVu frm = new frmDMChucVu();
             frm.ShowDialog();
@@ -98,7 +98,7 @@ namespace QuanLyBenhNhan
 
         }
 
-        private void mnuFinDonThuoc_Click(object sender, EventArgs e)
+        private void mnuFindDonThuoc_Click(object sender, EventArgs e)
         {
 
         }

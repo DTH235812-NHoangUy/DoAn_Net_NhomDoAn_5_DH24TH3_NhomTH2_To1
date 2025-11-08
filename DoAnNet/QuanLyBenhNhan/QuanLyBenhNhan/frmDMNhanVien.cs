@@ -208,7 +208,8 @@ namespace QuanLyBenhNhan
             txtMaNV.Text = ma?.ToString() ?? "";
             txtHoTenNV.Text = hoten?.ToString() ?? "";
             txtTuoiNV.Text = tuoi?.ToString() ?? "";
-        
+            txtSDTNV.Text = sdt?.ToString() ?? "";
+
 
             rdoGioiTinh.Checked = (gioiTinh == "Nam");
 
