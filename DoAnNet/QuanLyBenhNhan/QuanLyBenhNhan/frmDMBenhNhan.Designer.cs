@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkGioiTinh = new System.Windows.Forms.CheckBox();
             this.txtTuoiBN = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtSDTBN = new System.Windows.Forms.TextBox();
@@ -40,8 +41,8 @@
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.lblNgaySinh = new System.Windows.Forms.Label();
             this.lblGioiTinh = new System.Windows.Forms.Label();
-            this.lblTenBenhNhan = new System.Windows.Forms.Label();
-            this.lblMaBenhNhan = new System.Windows.Forms.Label();
+            this.lblTenBN = new System.Windows.Forms.Label();
+            this.lblMaBN = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvBenhNhan = new System.Windows.Forms.DataGridView();
-            this.chkGioiTinh = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBenhNhan)).BeginInit();
@@ -70,14 +70,24 @@
             this.panel1.Controls.Add(this.lblDiaChi);
             this.panel1.Controls.Add(this.lblNgaySinh);
             this.panel1.Controls.Add(this.lblGioiTinh);
-            this.panel1.Controls.Add(this.lblTenBenhNhan);
-            this.panel1.Controls.Add(this.lblMaBenhNhan);
+            this.panel1.Controls.Add(this.lblTenBN);
+            this.panel1.Controls.Add(this.lblMaBN);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1124, 199);
             this.panel1.TabIndex = 0;
+            // 
+            // chkGioiTinh
+            // 
+            this.chkGioiTinh.AutoSize = true;
+            this.chkGioiTinh.Location = new System.Drawing.Point(181, 122);
+            this.chkGioiTinh.Name = "chkGioiTinh";
+            this.chkGioiTinh.Size = new System.Drawing.Size(48, 18);
+            this.chkGioiTinh.TabIndex = 13;
+            this.chkGioiTinh.Text = "Nam";
+            this.chkGioiTinh.UseVisualStyleBackColor = true;
             // 
             // txtTuoiBN
             // 
@@ -167,23 +177,23 @@
             this.lblGioiTinh.TabIndex = 2;
             this.lblGioiTinh.Text = "Giới Tính:";
             // 
-            // lblTenBenhNhan
+            // lblTenBN
             // 
-            this.lblTenBenhNhan.AutoSize = true;
-            this.lblTenBenhNhan.Location = new System.Drawing.Point(61, 81);
-            this.lblTenBenhNhan.Name = "lblTenBenhNhan";
-            this.lblTenBenhNhan.Size = new System.Drawing.Size(84, 14);
-            this.lblTenBenhNhan.TabIndex = 1;
-            this.lblTenBenhNhan.Text = "Tên Bệnh Nhân:";
+            this.lblTenBN.AutoSize = true;
+            this.lblTenBN.Location = new System.Drawing.Point(61, 81);
+            this.lblTenBN.Name = "lblTenBN";
+            this.lblTenBN.Size = new System.Drawing.Size(84, 14);
+            this.lblTenBN.TabIndex = 1;
+            this.lblTenBN.Text = "Tên Bệnh Nhân:";
             // 
-            // lblMaBenhNhan
+            // lblMaBN
             // 
-            this.lblMaBenhNhan.AutoSize = true;
-            this.lblMaBenhNhan.Location = new System.Drawing.Point(61, 40);
-            this.lblMaBenhNhan.Name = "lblMaBenhNhan";
-            this.lblMaBenhNhan.Size = new System.Drawing.Size(80, 14);
-            this.lblMaBenhNhan.TabIndex = 0;
-            this.lblMaBenhNhan.Text = "Mã Bệnh Nhân:";
+            this.lblMaBN.AutoSize = true;
+            this.lblMaBN.Location = new System.Drawing.Point(61, 40);
+            this.lblMaBN.Name = "lblMaBN";
+            this.lblMaBN.Size = new System.Drawing.Size(80, 14);
+            this.lblMaBN.TabIndex = 0;
+            this.lblMaBN.Text = "Mã Bệnh Nhân:";
             // 
             // panel2
             // 
@@ -279,16 +289,6 @@
             this.dgvBenhNhan.TabIndex = 2;
             this.dgvBenhNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenhNhan_CellClick);
             // 
-            // chkGioiTinh
-            // 
-            this.chkGioiTinh.AutoSize = true;
-            this.chkGioiTinh.Location = new System.Drawing.Point(181, 122);
-            this.chkGioiTinh.Name = "chkGioiTinh";
-            this.chkGioiTinh.Size = new System.Drawing.Size(48, 18);
-            this.chkGioiTinh.TabIndex = 13;
-            this.chkGioiTinh.Text = "Nam";
-            this.chkGioiTinh.UseVisualStyleBackColor = true;
-            // 
             // frmDMBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -317,8 +317,8 @@
         private System.Windows.Forms.Label lblDiaChi;
         private System.Windows.Forms.Label lblNgaySinh;
         private System.Windows.Forms.Label lblGioiTinh;
-        private System.Windows.Forms.Label lblTenBenhNhan;
-        private System.Windows.Forms.Label lblMaBenhNhan;
+        private System.Windows.Forms.Label lblTenBN;
+        private System.Windows.Forms.Label lblMaBN;
         private System.Windows.Forms.TextBox txtTuoiBN;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.TextBox txtSDTBN;

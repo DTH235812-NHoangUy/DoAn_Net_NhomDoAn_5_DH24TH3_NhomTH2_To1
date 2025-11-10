@@ -65,3 +65,4 @@ C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\Quan
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.pdb
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe.config
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.FrmDMMacBenh.resources
+D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmChiTietDonThuoc.resources

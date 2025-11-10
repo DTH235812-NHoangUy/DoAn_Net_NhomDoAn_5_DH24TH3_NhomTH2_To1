@@ -36,11 +36,11 @@
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.lblSDT = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
-            this.txtTenBN = new System.Windows.Forms.TextBox();
+            this.txtHoTenBN = new System.Windows.Forms.TextBox();
             this.cboMaBN = new System.Windows.Forms.ComboBox();
             this.lblTenBN = new System.Windows.Forms.Label();
             this.lblMaBN = new System.Windows.Forms.Label();
-            this.txtTenNV = new System.Windows.Forms.TextBox();
+            this.txtHoTenNV = new System.Windows.Forms.TextBox();
             this.choMaNV = new System.Windows.Forms.ComboBox();
             this.lblTenNV = new System.Windows.Forms.Label();
             this.lblMaNV = new System.Windows.Forms.Label();
@@ -80,11 +80,11 @@
             this.groupBox1.Controls.Add(this.txtDiaChi);
             this.groupBox1.Controls.Add(this.lblSDT);
             this.groupBox1.Controls.Add(this.lblDiaChi);
-            this.groupBox1.Controls.Add(this.txtTenBN);
+            this.groupBox1.Controls.Add(this.txtHoTenBN);
             this.groupBox1.Controls.Add(this.cboMaBN);
             this.groupBox1.Controls.Add(this.lblTenBN);
             this.groupBox1.Controls.Add(this.lblMaBN);
-            this.groupBox1.Controls.Add(this.txtTenNV);
+            this.groupBox1.Controls.Add(this.txtHoTenNV);
             this.groupBox1.Controls.Add(this.choMaNV);
             this.groupBox1.Controls.Add(this.lblTenNV);
             this.groupBox1.Controls.Add(this.lblMaNV);
@@ -151,12 +151,12 @@
             this.lblDiaChi.TabIndex = 9;
             this.lblDiaChi.Text = "Địa chỉ:";
             // 
-            // txtTenBN
+            // txtHoTenBN
             // 
-            this.txtTenBN.Location = new System.Drawing.Point(455, 37);
-            this.txtTenBN.Name = "txtTenBN";
-            this.txtTenBN.Size = new System.Drawing.Size(100, 20);
-            this.txtTenBN.TabIndex = 8;
+            this.txtHoTenBN.Location = new System.Drawing.Point(455, 37);
+            this.txtHoTenBN.Name = "txtHoTenBN";
+            this.txtHoTenBN.Size = new System.Drawing.Size(100, 20);
+            this.txtHoTenBN.TabIndex = 8;
             // 
             // cboMaBN
             // 
@@ -184,12 +184,12 @@
             this.lblMaBN.TabIndex = 5;
             this.lblMaBN.Text = "Mã Bệnh Nhân:";
             // 
-            // txtTenNV
+            // txtHoTenNV
             // 
-            this.txtTenNV.Location = new System.Drawing.Point(117, 84);
-            this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(100, 20);
-            this.txtTenNV.TabIndex = 4;
+            this.txtHoTenNV.Location = new System.Drawing.Point(117, 84);
+            this.txtHoTenNV.Name = "txtHoTenNV";
+            this.txtHoTenNV.Size = new System.Drawing.Size(100, 20);
+            this.txtHoTenNV.TabIndex = 4;
             // 
             // choMaNV
             // 
@@ -448,11 +448,11 @@
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label lblSDT;
         private System.Windows.Forms.Label lblDiaChi;
-        private System.Windows.Forms.TextBox txtTenBN;
+        private System.Windows.Forms.TextBox txtHoTenBN;
         private System.Windows.Forms.ComboBox cboMaBN;
         private System.Windows.Forms.Label lblTenBN;
         private System.Windows.Forms.Label lblMaBN;
-        private System.Windows.Forms.TextBox txtTenNV;
+        private System.Windows.Forms.TextBox txtHoTenNV;
         private System.Windows.Forms.ComboBox choMaNV;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label11;
