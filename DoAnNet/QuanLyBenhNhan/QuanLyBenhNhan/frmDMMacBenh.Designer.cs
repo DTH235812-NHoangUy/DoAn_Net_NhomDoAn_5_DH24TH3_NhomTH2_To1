@@ -152,14 +152,14 @@
             // 
             // txtLoaiBenh
             // 
-            this.txtLoaiBenh.Location = new System.Drawing.Point(364, 60);
+            this.txtLoaiBenh.Location = new System.Drawing.Point(333, 50);
             this.txtLoaiBenh.Name = "txtLoaiBenh";
             this.txtLoaiBenh.Size = new System.Drawing.Size(228, 20);
             this.txtLoaiBenh.TabIndex = 3;
             // 
             // txtMaBenh
             // 
-            this.txtMaBenh.Location = new System.Drawing.Point(364, 28);
+            this.txtMaBenh.Location = new System.Drawing.Point(333, 18);
             this.txtMaBenh.Name = "txtMaBenh";
             this.txtMaBenh.Size = new System.Drawing.Size(228, 20);
             this.txtMaBenh.TabIndex = 2;
@@ -167,7 +167,7 @@
             // lblLoaiBenh
             // 
             this.lblLoaiBenh.AutoSize = true;
-            this.lblLoaiBenh.Location = new System.Drawing.Point(281, 66);
+            this.lblLoaiBenh.Location = new System.Drawing.Point(250, 56);
             this.lblLoaiBenh.Name = "lblLoaiBenh";
             this.lblLoaiBenh.Size = new System.Drawing.Size(58, 14);
             this.lblLoaiBenh.TabIndex = 1;
@@ -176,7 +176,7 @@
             // lblMaBenh
             // 
             this.lblMaBenh.AutoSize = true;
-            this.lblMaBenh.Location = new System.Drawing.Point(283, 31);
+            this.lblMaBenh.Location = new System.Drawing.Point(252, 21);
             this.lblMaBenh.Name = "lblMaBenh";
             this.lblMaBenh.Size = new System.Drawing.Size(52, 14);
             this.lblMaBenh.TabIndex = 0;

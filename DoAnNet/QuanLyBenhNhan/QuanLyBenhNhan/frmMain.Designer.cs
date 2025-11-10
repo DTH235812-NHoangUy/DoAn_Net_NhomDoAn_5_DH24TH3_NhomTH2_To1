@@ -35,7 +35,6 @@
             this.mnuDanhMuc = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBenhNhan = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDMMacBenh = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDieuTri = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuNhanVien = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuChucVu = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +89,7 @@
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(104, 22);
+            this.mnuThoat.Size = new System.Drawing.Size(180, 22);
             this.mnuThoat.Text = "Thoát";
             this.mnuThoat.Click += new System.EventHandler(this.mnuThoat_Click);
             // 
@@ -99,7 +98,6 @@
             this.mnuDanhMuc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuBenhNhan,
             this.mnuDMMacBenh,
-            this.mnuDieuTri,
             this.toolStripMenuItem1,
             this.mnuNhanVien,
             this.mnuChucVu,
@@ -123,13 +121,6 @@
             this.mnuDMMacBenh.Size = new System.Drawing.Size(180, 22);
             this.mnuDMMacBenh.Text = "Mắc Bệnh";
             this.mnuDMMacBenh.Click += new System.EventHandler(this.mnuDMMacBenh_Click);
-            // 
-            // mnuDieuTri
-            // 
-            this.mnuDieuTri.Name = "mnuDieuTri";
-            this.mnuDieuTri.Size = new System.Drawing.Size(180, 22);
-            this.mnuDieuTri.Text = "Điều trị";
-            this.mnuDieuTri.Click += new System.EventHandler(this.mnuDieuTri_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -180,14 +171,14 @@
             // mnuThuoc
             // 
             this.mnuThuoc.Name = "mnuThuoc";
-            this.mnuThuoc.Size = new System.Drawing.Size(180, 22);
+            this.mnuThuoc.Size = new System.Drawing.Size(132, 22);
             this.mnuThuoc.Text = "Thuốc";
             this.mnuThuoc.Click += new System.EventHandler(this.mnuThuoc_Click);
             // 
             // mnuDonThuoc
             // 
             this.mnuDonThuoc.Name = "mnuDonThuoc";
-            this.mnuDonThuoc.Size = new System.Drawing.Size(180, 22);
+            this.mnuDonThuoc.Size = new System.Drawing.Size(132, 22);
             this.mnuDonThuoc.Text = "Đơn Thuốc";
             this.mnuDonThuoc.Click += new System.EventHandler(this.mnuDonThuoc_Click);
             // 
@@ -204,21 +195,21 @@
             // mnuFindBenhNhan
             // 
             this.mnuFindBenhNhan.Name = "mnuFindBenhNhan";
-            this.mnuFindBenhNhan.Size = new System.Drawing.Size(180, 22);
+            this.mnuFindBenhNhan.Size = new System.Drawing.Size(131, 22);
             this.mnuFindBenhNhan.Text = "Bệnh nhân";
             this.mnuFindBenhNhan.Click += new System.EventHandler(this.mnuFindBenhNhan_Click);
             // 
             // mnuFindNhanVien
             // 
             this.mnuFindNhanVien.Name = "mnuFindNhanVien";
-            this.mnuFindNhanVien.Size = new System.Drawing.Size(180, 22);
+            this.mnuFindNhanVien.Size = new System.Drawing.Size(131, 22);
             this.mnuFindNhanVien.Text = "Nhân viên";
             this.mnuFindNhanVien.Click += new System.EventHandler(this.mnuFindNhanVien_Click);
             // 
             // mnuFindDonThuoc
             // 
             this.mnuFindDonThuoc.Name = "mnuFindDonThuoc";
-            this.mnuFindDonThuoc.Size = new System.Drawing.Size(180, 22);
+            this.mnuFindDonThuoc.Size = new System.Drawing.Size(131, 22);
             this.mnuFindDonThuoc.Text = "Đơn thuốc";
             this.mnuFindDonThuoc.Click += new System.EventHandler(this.mnuFindDonThuoc_Click);
             // 
@@ -251,7 +242,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuDanhMuc;
         private System.Windows.Forms.ToolStripMenuItem mnuBenhNhan;
         private System.Windows.Forms.ToolStripMenuItem mnuDMMacBenh;
-        private System.Windows.Forms.ToolStripMenuItem mnuDieuTri;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuNhanVien;
         private System.Windows.Forms.ToolStripMenuItem mnuChucVu;

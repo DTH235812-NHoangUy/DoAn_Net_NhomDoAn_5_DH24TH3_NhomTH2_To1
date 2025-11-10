@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
             this.cboChucVu = new System.Windows.Forms.ComboBox();
-            this.rdoGioiTinh = new System.Windows.Forms.RadioButton();
             this.txtSDTNV = new System.Windows.Forms.TextBox();
             this.txtTuoiNV = new System.Windows.Forms.TextBox();
             this.txtHoTenNV = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.chkGioiTinh = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
@@ -58,9 +58,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkGioiTinh);
             this.panel1.Controls.Add(this.cboKhoa);
             this.panel1.Controls.Add(this.cboChucVu);
-            this.panel1.Controls.Add(this.rdoGioiTinh);
             this.panel1.Controls.Add(this.txtSDTNV);
             this.panel1.Controls.Add(this.txtTuoiNV);
             this.panel1.Controls.Add(this.txtHoTenNV);
@@ -93,17 +93,6 @@
             this.cboChucVu.Name = "cboChucVu";
             this.cboChucVu.Size = new System.Drawing.Size(150, 21);
             this.cboChucVu.TabIndex = 18;
-            // 
-            // rdoGioiTinh
-            // 
-            this.rdoGioiTinh.AutoSize = true;
-            this.rdoGioiTinh.Location = new System.Drawing.Point(112, 90);
-            this.rdoGioiTinh.Name = "rdoGioiTinh";
-            this.rdoGioiTinh.Size = new System.Drawing.Size(47, 17);
-            this.rdoGioiTinh.TabIndex = 17;
-            this.rdoGioiTinh.TabStop = true;
-            this.rdoGioiTinh.Text = "Nam";
-            this.rdoGioiTinh.UseVisualStyleBackColor = true;
             // 
             // txtSDTNV
             // 
@@ -294,6 +283,16 @@
             this.dgvNhanVien.TabIndex = 2;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
+            // chkGioiTinh
+            // 
+            this.chkGioiTinh.AutoSize = true;
+            this.chkGioiTinh.Location = new System.Drawing.Point(112, 89);
+            this.chkGioiTinh.Name = "chkGioiTinh";
+            this.chkGioiTinh.Size = new System.Drawing.Size(48, 17);
+            this.chkGioiTinh.TabIndex = 20;
+            this.chkGioiTinh.Text = "Nam";
+            this.chkGioiTinh.UseVisualStyleBackColor = true;
+            // 
             // frmDMNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,10 +332,10 @@
         private System.Windows.Forms.TextBox txtTuoiNV;
         private System.Windows.Forms.TextBox txtHoTenNV;
         private System.Windows.Forms.TextBox txtMaNV;
-        private System.Windows.Forms.RadioButton rdoGioiTinh;
         private System.Windows.Forms.TextBox txtSDTNV;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.ComboBox cboKhoa;
         private System.Windows.Forms.ComboBox cboChucVu;
+        private System.Windows.Forms.CheckBox chkGioiTinh;
     }
 }

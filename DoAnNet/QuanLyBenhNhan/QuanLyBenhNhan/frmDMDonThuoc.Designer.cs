@@ -31,10 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.txtCachSuDung = new System.Windows.Forms.TextBox();
-            this.txtTenDT = new System.Windows.Forms.TextBox();
             this.txtMaDT = new System.Windows.Forms.TextBox();
             this.lblDonViTinh = new System.Windows.Forms.Label();
-            this.lblTenDonThuoc = new System.Windows.Forms.Label();
             this.lblCachSuDung = new System.Windows.Forms.Label();
             this.lblMaDonThuoc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,10 +52,8 @@
             // 
             this.panel1.Controls.Add(this.txtDonViTinh);
             this.panel1.Controls.Add(this.txtCachSuDung);
-            this.panel1.Controls.Add(this.txtTenDT);
             this.panel1.Controls.Add(this.txtMaDT);
             this.panel1.Controls.Add(this.lblDonViTinh);
-            this.panel1.Controls.Add(this.lblTenDonThuoc);
             this.panel1.Controls.Add(this.lblCachSuDung);
             this.panel1.Controls.Add(this.lblMaDonThuoc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -68,28 +64,21 @@
             // 
             // txtDonViTinh
             // 
-            this.txtDonViTinh.Location = new System.Drawing.Point(488, 58);
+            this.txtDonViTinh.Location = new System.Drawing.Point(489, 18);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.Size = new System.Drawing.Size(114, 20);
             this.txtDonViTinh.TabIndex = 7;
             // 
             // txtCachSuDung
             // 
-            this.txtCachSuDung.Location = new System.Drawing.Point(248, 58);
+            this.txtCachSuDung.Location = new System.Drawing.Point(258, 58);
             this.txtCachSuDung.Name = "txtCachSuDung";
             this.txtCachSuDung.Size = new System.Drawing.Size(114, 20);
             this.txtCachSuDung.TabIndex = 6;
             // 
-            // txtTenDT
-            // 
-            this.txtTenDT.Location = new System.Drawing.Point(488, 18);
-            this.txtTenDT.Name = "txtTenDT";
-            this.txtTenDT.Size = new System.Drawing.Size(114, 20);
-            this.txtTenDT.TabIndex = 5;
-            // 
             // txtMaDT
             // 
-            this.txtMaDT.Location = new System.Drawing.Point(248, 15);
+            this.txtMaDT.Location = new System.Drawing.Point(258, 18);
             this.txtMaDT.Name = "txtMaDT";
             this.txtMaDT.Size = new System.Drawing.Size(114, 20);
             this.txtMaDT.TabIndex = 4;
@@ -97,20 +86,11 @@
             // lblDonViTinh
             // 
             this.lblDonViTinh.AutoSize = true;
-            this.lblDonViTinh.Location = new System.Drawing.Point(396, 61);
+            this.lblDonViTinh.Location = new System.Drawing.Point(397, 21);
             this.lblDonViTinh.Name = "lblDonViTinh";
             this.lblDonViTinh.Size = new System.Drawing.Size(68, 13);
             this.lblDonViTinh.TabIndex = 3;
             this.lblDonViTinh.Text = "Đơn Vị Tính:";
-            // 
-            // lblTenDonThuoc
-            // 
-            this.lblTenDonThuoc.AutoSize = true;
-            this.lblTenDonThuoc.Location = new System.Drawing.Point(396, 18);
-            this.lblTenDonThuoc.Name = "lblTenDonThuoc";
-            this.lblTenDonThuoc.Size = new System.Drawing.Size(86, 13);
-            this.lblTenDonThuoc.TabIndex = 2;
-            this.lblTenDonThuoc.Text = "Tên Đơn Thuốc:";
             // 
             // lblCachSuDung
             // 
@@ -247,7 +227,6 @@
         private System.Windows.Forms.DataGridView dgvDonThuoc;
         private System.Windows.Forms.TextBox txtMaDT;
         private System.Windows.Forms.Label lblDonViTinh;
-        private System.Windows.Forms.Label lblTenDonThuoc;
         private System.Windows.Forms.Label lblCachSuDung;
         private System.Windows.Forms.Label lblMaDonThuoc;
         private System.Windows.Forms.Button btnThoat;
@@ -256,7 +235,6 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.TextBox txtTenDT;
         private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.TextBox txtCachSuDung;
     }

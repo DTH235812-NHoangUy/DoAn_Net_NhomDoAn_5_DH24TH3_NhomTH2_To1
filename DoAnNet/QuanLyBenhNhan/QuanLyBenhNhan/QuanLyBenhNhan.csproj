@@ -75,6 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmChiTietDonThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietDonThuoc.Designer.cs">
+      <DependentUpon>frmChiTietDonThuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDMBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,12 +98,6 @@
     </Compile>
     <Compile Include="frmDMChucVu.Designer.cs">
       <DependentUpon>frmDMChucVu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDMDieuTri.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDMDieuTri.Designer.cs">
-      <DependentUpon>frmDMDieuTri.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDMDonThuoc.cs">
       <SubType>Form</SubType>
@@ -138,6 +138,9 @@
     <Compile Include="Functions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmChiTietDonThuoc.resx">
+      <DependentUpon>frmChiTietDonThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDMBenhNhan.resx">
       <DependentUpon>frmDMBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,9 +149,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMChucVu.resx">
       <DependentUpon>frmDMChucVu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDMDieuTri.resx">
-      <DependentUpon>frmDMDieuTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMDonThuoc.resx">
       <DependentUpon>frmDMDonThuoc.cs</DependentUpon>

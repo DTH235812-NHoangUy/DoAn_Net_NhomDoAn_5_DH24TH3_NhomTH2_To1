@@ -24,7 +24,7 @@ namespace QuanLyBenhNhan
             txtHoTenNV.Text = "";
             txtTuoiNV.Text = "";
             txtSDTNV.Text = "";
-            rdoGioiTinh.Checked = true;
+            chkGioiTinh.Checked = true;
 
         }
 
@@ -122,7 +122,7 @@ namespace QuanLyBenhNhan
                 return;
             }
 
-            string gioiTinh = rdoGioiTinh.Checked ? "Nam" : "Nữ";
+            string gioiTinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
             sql = "INSERT INTO NhanVien (MaNV, HoTenNV, GioiTinhNV, TuoiNV, SDTNV, MaCV,MaKhoa) " +
                   "VALUES (@MaNV, @HoTenNV, @GioiTinhNV, @TuoiNV, @SDTNV,@MaCV,@MaKhoa)";
 
@@ -211,7 +211,7 @@ namespace QuanLyBenhNhan
             txtSDTNV.Text = sdt?.ToString() ?? "";
 
 
-            rdoGioiTinh.Checked = (gioiTinh == "Nam");
+            chkGioiTinh.Checked = (gioiTinh == "Nam");
 
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -241,7 +241,7 @@ namespace QuanLyBenhNhan
                     return;
                 }
 
-                string gioiTinh = rdoGioiTinh.Checked ? "Nam" : "Nữ";
+                string gioiTinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
 
                 //Update dữ liệu 
                 string sql = "UPDATE NhanVien SET HoTenNV = @HoTenNV, GioiTinhNV = @GioiTinhNV, TuoiNV = @TuoiNV, " +

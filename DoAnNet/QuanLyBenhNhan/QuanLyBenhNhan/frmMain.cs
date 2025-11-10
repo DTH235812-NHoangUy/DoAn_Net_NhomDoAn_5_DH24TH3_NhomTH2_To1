@@ -47,11 +47,7 @@ namespace QuanLyBenhNhan
         }
 
 
-        private void mnuDieuTri_Click(object sender, EventArgs e)
-        {
-            frmDMDieuTri frm = new frmDMDieuTri();
-            frm.ShowDialog();
-        }
+        
 
         private void mnuNhanVien_Click(object sender, EventArgs e)
         {

@@ -20,23 +20,16 @@ namespace QuanLyBenhNhan
             btnBoQua.Enabled = false;
             Functions.Connect(); // nếu bạn có hàm mở kết nối
             LoadDataGridView();
-            LoadCboMaBenh(); // thêm dòng này
+            
 
             // --- Căn giữa ---
             dgvBenhNhan.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBenhNhan.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBenhNhan.RowHeadersVisible = false;
-
-            // --- Nạp dữ liệu vào ComboBox Mã Bệnh ---
-            string sql = "SELECT MaBenh, LoaiBenh FROM MacBenh";
-            DataTable tblMB = Functions.GetDataToTable(sql);
-
-            cboMaBenh.DataSource = tblMB;
-            cboMaBenh.DisplayMember = "LoaiBenh";  // Hiển thị tên bệnh
-            cboMaBenh.ValueMember = "MaBenh";      // Lưu mã bệnh
-            cboMaBenh.SelectedIndex = -1;          // Chưa chọn gì
         }
+
+           
 
 
         private void LoadDataGridView()
@@ -67,7 +60,6 @@ namespace QuanLyBenhNhan
             txtTuoiBN.Text = "";
             txtDiaChiBN.Text = "";
             txtSDTBN.Text = "";
-            rdoGioiTinh.Checked = true;
             dtpNgaySinh.Value = DateTime.Now;
         }
 
@@ -114,10 +106,10 @@ namespace QuanLyBenhNhan
                 txtMaBN.Focus();
                 return;
             }
-
-            string gioiTinh = rdoGioiTinh.Checked ? "Nam" : "Nữ";
-            sql = "INSERT INTO BenhNhan (MaBN, HoTenBN, GioiTinh, TuoiBN, NgaySinh, DiaChiBN, SDTBN, MaBenh) " +
-                  "VALUES (@MaBN, @HoTenBN, @GioiTinh, @TuoiBN, @NgaySinh, @DiaChiBN, @SDTBN,@MaBenh)";
+            
+            string gioiTinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
+            sql = "INSERT INTO BenhNhan (MaBN, HoTenBN, GioiTinh, TuoiBN, NgaySinh, DiaChiBN, SDTBN) " +
+                  "VALUES (@MaBN, @HoTenBN, @GioiTinh, @TuoiBN, @NgaySinh, @DiaChiBN, @SDTBN)";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
@@ -128,7 +120,6 @@ namespace QuanLyBenhNhan
                 cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
                 cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());
                 cmd.Parameters.AddWithValue("@SDTBN", txtSDTBN.Text.Trim());
-                cmd.Parameters.AddWithValue("@MaBenh", cboMaBenh.SelectedValue ?? DBNull.Value);
 
 
                 cmd.ExecuteNonQuery();
@@ -144,18 +135,7 @@ namespace QuanLyBenhNhan
             txtMaBN.Enabled = false;
             MessageBox.Show("Đã thêm bệnh nhân mới!", "Thông báo");
         }
-        private void LoadCboMaBenh()
-        {
-            string sql = "SELECT MaBenh, LoaiBenh FROM MacBenh";
-            SqlDataAdapter da = new SqlDataAdapter(sql, Functions.Con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            cboMaBenh.DataSource = dt;
-            // hiển thị Loại bệnh
-            cboMaBenh.ValueMember = "MaBenh";     // lưu giá trị thật là Mã bệnh
-            cboMaBenh.DisplayMember = "LoaiBenh"; // hiển thị tên bệnh
-        }
+       
         // Khi click chọn dòng trong DataGridView
         private void dgvBenhNhan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -180,12 +160,8 @@ namespace QuanLyBenhNhan
             var sdt = GetCellSafe("SDTBN");
             var ngaysinh = GetCellSafe("NgaySinh");
             var gioiTinh = GetCellSafe("GioiTinh")?.ToString() ?? "Nam";
-            var maBenh = GetCellSafe("MaBenh");
-            if (maBenh != null)
-                cboMaBenh.SelectedValue = maBenh;
-            else
-                cboMaBenh.SelectedIndex = -1;   
-
+            
+           
 
             txtMaBN.Text = ma?.ToString() ?? "";
             txtHoTenBN.Text = hoten?.ToString() ?? "";
@@ -198,7 +174,7 @@ namespace QuanLyBenhNhan
             else
                 dtpNgaySinh.Value = DateTime.Now;
 
-            rdoGioiTinh.Checked = (gioiTinh == "Nam");
+           chkGioiTinh.Checked = (gioiTinh == "Nam");
 
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -209,52 +185,48 @@ namespace QuanLyBenhNhan
         // Nút Sửa
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (tblBN == null || tblBN.Rows.Count == 0)
             {
-                if (tblBN == null || tblBN.Rows.Count == 0)
-                {
-                    MessageBox.Show("Không còn dữ liệu để sửa!", "Thông báo");
-                    return;
-                }
-
-                if (txtMaBN.Text.Trim() == "")
-                {
-                    MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo");
-                    return;
-                }
-
-                if (!int.TryParse(txtTuoiBN.Text.Trim(), out int tuoi))
-                {
-                    MessageBox.Show("Tuổi phải là số nguyên!", "Thông báo");
-                    txtTuoiBN.Focus();
-                    return;
-                }
-
-                string gioiTinh = rdoGioiTinh.Checked ? "Nam" : "Nữ";
-
-                //Update dữ liệu 
-                string sql = "UPDATE BenhNhan SET HoTenBN = @HoTenBN, GioiTinh = @GioiTinh, TuoiBN = @TuoiBN, " +
-              "NgaySinh = @NgaySinh, DiaChiBN = @DiaChiBN, SDTBN = @SDTBN, MaBenh = @MaBenh " +
-              "WHERE MaBN = @MaBN";
-
-                using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
-                {
-                    cmd.Parameters.AddWithValue("@HoTenBN", txtHoTenBN.Text.Trim());
-                    cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
-                    cmd.Parameters.AddWithValue("@TuoiBN", tuoi);
-                    cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());
-                    cmd.Parameters.AddWithValue("@SDTBN", txtSDTBN.Text.Trim());
-                    cmd.Parameters.AddWithValue("@MaBN", txtMaBN.Text.Trim());
-                    cmd.Parameters.AddWithValue("@MaBenh", cboMaBenh.SelectedValue);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                LoadDataGridView();
-                ResetValue();
-                MessageBox.Show("Cập nhật thành công!", "Thông báo");
+                MessageBox.Show("Không còn dữ liệu để sửa!", "Thông báo");
+                return;
             }
+
+            if (txtMaBN.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo");
+                return;
+            }
+
+            if (!int.TryParse(txtTuoiBN.Text.Trim(), out int tuoi))
+            {
+                MessageBox.Show("Tuổi phải là số nguyên!", "Thông báo");
+                txtTuoiBN.Focus();
+                return;
+            }
+
+            string gioiTinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
+
+            string sql = "UPDATE BenhNhan SET HoTenBN = @HoTenBN, GioiTinh = @GioiTinh, TuoiBN = @TuoiBN, " +
+                         "NgaySinh = @NgaySinh, DiaChiBN = @DiaChiBN, SDTBN = @SDTBN " +
+                         "WHERE MaBN = @MaBN";
+
+            using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
+            {
+                cmd.Parameters.AddWithValue("@HoTenBN", txtHoTenBN.Text.Trim());
+                cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                cmd.Parameters.AddWithValue("@TuoiBN", tuoi);
+                cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
+                cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());
+                cmd.Parameters.AddWithValue("@SDTBN", txtSDTBN.Text.Trim());
+                cmd.Parameters.AddWithValue("@MaBN", txtMaBN.Text.Trim());
+                cmd.ExecuteNonQuery();
+            }
+
+            LoadDataGridView();
+            ResetValue();
+            MessageBox.Show("Cập nhật thành công!", "Thông báo");
         }
+
 
         // Nút Xóa
 

@@ -60,24 +60,24 @@
             // 
             // txtTenCV
             // 
-            this.txtTenCV.Location = new System.Drawing.Point(424, 102);
+            this.txtTenCV.Location = new System.Drawing.Point(424, 78);
             this.txtTenCV.Name = "txtTenCV";
-            this.txtTenCV.Size = new System.Drawing.Size(157, 26);
+            this.txtTenCV.Size = new System.Drawing.Size(157, 20);
             this.txtTenCV.TabIndex = 3;
             // 
             // txtMaCV
             // 
             this.txtMaCV.Location = new System.Drawing.Point(424, 41);
             this.txtMaCV.Name = "txtMaCV";
-            this.txtMaCV.Size = new System.Drawing.Size(157, 26);
+            this.txtMaCV.Size = new System.Drawing.Size(157, 20);
             this.txtMaCV.TabIndex = 2;
             // 
             // lblTenCV
             // 
             this.lblTenCV.AutoSize = true;
-            this.lblTenCV.Location = new System.Drawing.Point(298, 105);
+            this.lblTenCV.Location = new System.Drawing.Point(298, 81);
             this.lblTenCV.Name = "lblTenCV";
-            this.lblTenCV.Size = new System.Drawing.Size(102, 19);
+            this.lblTenCV.Size = new System.Drawing.Size(71, 14);
             this.lblTenCV.TabIndex = 1;
             this.lblTenCV.Text = "Tên Chức Vụ:";
             // 
@@ -86,7 +86,7 @@
             this.lblMaCV.AutoSize = true;
             this.lblMaCV.Location = new System.Drawing.Point(298, 41);
             this.lblMaCV.Name = "lblMaCV";
-            this.lblMaCV.Size = new System.Drawing.Size(99, 19);
+            this.lblMaCV.Size = new System.Drawing.Size(67, 14);
             this.lblMaCV.TabIndex = 0;
             this.lblMaCV.Text = "Mã Chức Vụ:";
             // 
@@ -177,7 +177,7 @@
             // 
             // frmDMChucVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 640);
             this.Controls.Add(this.dgvChucVu);
