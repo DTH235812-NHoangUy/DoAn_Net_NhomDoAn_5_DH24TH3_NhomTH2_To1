@@ -8,7 +8,7 @@ namespace QuanLyBenhNhan
 {
     public partial class frmDMMacBenh : Form
     {
-        DataTable tblMB; //Bảng danh mục Mắc Bệnh
+        DataTable tblMB; 
         public frmDMMacBenh()
         {
             InitializeComponent();
@@ -30,14 +30,7 @@ namespace QuanLyBenhNhan
         private void LoadDataGridView()
         {
             string sql = "SELECT MaBenh, LoaiBenh FROM MacBenh";
-            DataTable tblMB = Functions.GetDataToTable(sql);
-            dgvMacBenh.DataSource = tblMB;
-            tblMB = Functions.GetDataToTable(sql);
-            dgvMacBenh.DataSource = tblMB;
-            // Lấy dữ liệu ra DataTable
-            
-
-            // Gán dữ liệu cho DataGridView
+            tblMB = Functions.GetDataToTable(sql); // Assign to the class-level field
             dgvMacBenh.DataSource = tblMB;
 
             // --- Đặt tiêu đề cột ---

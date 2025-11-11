@@ -19,7 +19,7 @@ namespace QuanLyBenhNhan
 
 
             // ====== Cấu hình chuỗi kết nối ======
-            string connectionString = @"Data Source=admin;Initial Catalog=ChuongTrinh_QuanLyBenhNhan;Integrated Security=True";
+            string connectionString = @"Data Source= DESKTOP-67VEU9P\SERVERBENHVIEN;Initial Catalog=ChuongTrinh_QuanLyBenhNhan;Integrated Security=True";
 
             // ====== Khởi tạo đối tượng SqlConnection ======
             Con = new SqlConnection(connectionString);
@@ -76,6 +76,28 @@ namespace QuanLyBenhNhan
             }
             cmd.Dispose();//Giải phóng bộ nhớ
             cmd = null;
+        }
+        // Add this method to the Functions class
+        public static string GetFieldValues(string sql)
+        {
+            string result = "";
+            SqlCommand cmd = new SqlCommand(sql, Con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            reader.Close();
+            return result;
+        }
+        public static void FillCombo(string sql, ComboBox cbo, string ma, string ten)
+        {
+            SqlDataAdapter dap = new SqlDataAdapter(sql, Con);
+            DataTable table = new DataTable();
+            dap.Fill(table);
+            cbo.DataSource = table;
+            cbo.ValueMember = ma;
+            cbo.DisplayMember = ten;
         }
     }
 }

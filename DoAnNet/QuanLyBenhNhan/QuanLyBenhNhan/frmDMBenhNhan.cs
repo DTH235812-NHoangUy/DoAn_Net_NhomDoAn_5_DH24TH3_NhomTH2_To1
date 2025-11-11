@@ -34,7 +34,7 @@ namespace QuanLyBenhNhan
 
         private void LoadDataGridView()
         {
-            string sql = "SELECT BN.MaBN, BN.HoTenBN, BN.GioiTinh, BN.TuoiBN, BN.NgaySinh, " +
+            string sql = "SELECT BN.MaBN, BN.HoTenBN, BN.GioiTinhBN, BN.TuoiBN, BN.NgaySinh, " +
                          "BN.DiaChiBN, BN.SDTBN, BN.MaBenh, MB.LoaiBenh " +
                          "FROM BenhNhan BN LEFT JOIN MacBenh MB ON BN.MaBenh = MB.MaBenh";
 
@@ -43,7 +43,7 @@ namespace QuanLyBenhNhan
 
             dgvBenhNhan.Columns["MaBN"].HeaderText = "Mã bệnh nhân";
             dgvBenhNhan.Columns["HoTenBN"].HeaderText = "Họ tên";
-            dgvBenhNhan.Columns["GioiTinh"].HeaderText = "Giới tính";
+            dgvBenhNhan.Columns["GioiTinhBN"].HeaderText = "Giới tính";
             dgvBenhNhan.Columns["TuoiBN"].HeaderText = "Tuổi";
             dgvBenhNhan.Columns["NgaySinh"].HeaderText = "Ngày sinh";
             dgvBenhNhan.Columns["DiaChiBN"].HeaderText = "Địa chỉ";
@@ -107,15 +107,15 @@ namespace QuanLyBenhNhan
                 return;
             }
             
-            string gioiTinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
-            sql = "INSERT INTO BenhNhan (MaBN, HoTenBN, GioiTinh, TuoiBN, NgaySinh, DiaChiBN, SDTBN) " +
-                  "VALUES (@MaBN, @HoTenBN, @GioiTinh, @TuoiBN, @NgaySinh, @DiaChiBN, @SDTBN)";
+            string gioitinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
+            sql = "INSERT INTO BenhNhan (MaBN, HoTenBN, GioiTinhBN, TuoiBN, NgaySinh, DiaChiBN, SDTBN) " +
+                  "VALUES (@MaBN, @HoTenBN, @GioiTinhBN, @TuoiBN, @NgaySinh, @DiaChiBN, @SDTBN)";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
                 cmd.Parameters.AddWithValue("@MaBN", txtMaBN.Text.Trim());
                 cmd.Parameters.AddWithValue("@HoTenBN", txtHoTenBN.Text.Trim());
-                cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                cmd.Parameters.AddWithValue("@GioiTinhBN", gioitinh);
                 cmd.Parameters.AddWithValue("@TuoiBN", tuoi);
                 cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
                 cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());
@@ -159,7 +159,7 @@ namespace QuanLyBenhNhan
             var diachi = GetCellSafe("DiaChiBN");
             var sdt = GetCellSafe("SDTBN");
             var ngaysinh = GetCellSafe("NgaySinh");
-            var gioiTinh = GetCellSafe("GioiTinh")?.ToString() ?? "Nam";
+            var gioitinh = GetCellSafe("GioiTinhBN")?.ToString() ?? "Nam";
             
            
 
@@ -174,7 +174,7 @@ namespace QuanLyBenhNhan
             else
                 dtpNgaySinh.Value = DateTime.Now;
 
-           chkGioiTinh.Checked = (gioiTinh == "Nam");
+           chkGioiTinh.Checked = (gioitinh == "Nam");
 
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -204,16 +204,16 @@ namespace QuanLyBenhNhan
                 return;
             }
 
-            string gioiTinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
+            string gioitinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
 
-            string sql = "UPDATE BenhNhan SET HoTenBN = @HoTenBN, GioiTinh = @GioiTinh, TuoiBN = @TuoiBN, " +
+            string sql = "UPDATE BenhNhan SET HoTenBN = @HoTenBN, GioiTinhBN = @GioiTinhBN, TuoiBN = @TuoiBN, " +
                          "NgaySinh = @NgaySinh, DiaChiBN = @DiaChiBN, SDTBN = @SDTBN " +
                          "WHERE MaBN = @MaBN";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
                 cmd.Parameters.AddWithValue("@HoTenBN", txtHoTenBN.Text.Trim());
-                cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                cmd.Parameters.AddWithValue("@GioiTinhBN", gioitinh);
                 cmd.Parameters.AddWithValue("@TuoiBN", tuoi);
                 cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
                 cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());

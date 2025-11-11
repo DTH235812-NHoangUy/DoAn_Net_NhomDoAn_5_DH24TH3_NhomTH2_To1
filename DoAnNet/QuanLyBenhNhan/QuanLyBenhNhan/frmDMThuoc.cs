@@ -18,23 +18,23 @@ namespace QuanLyBenhNhan
 
         private void LoadDataGridView()
         {
-            string sql = "SELECT MaThuoc, TenThuoc FROM Thuoc";
+            // THÊM cột DonViTinh vào câu lệnh SELECT
+            string sql = "SELECT MaThuoc, TenThuoc, DonViTinh FROM Thuoc";
 
-            // Lấy dữ liệu ra DataTable và gán cho field (không khai báo cục bộ để tránh shadowing)
             tblThuoc = Functions.GetDataToTable(sql);
 
-            // Gán dữ liệu cho DataGridView
             dgvThuoc.DataSource = tblThuoc;
 
             // --- Đặt tiêu đề cột ---
             dgvThuoc.Columns["MaThuoc"].HeaderText = "Mã thuốc";
             dgvThuoc.Columns["TenThuoc"].HeaderText = "Tên thuốc";
+            dgvThuoc.Columns["DonViTinh"].HeaderText = "Đơn vị tính"; // THÊM tiêu đề cột
 
             // --- Căn chỉnh hiển thị ---
-            dgvThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // căn giữa tiêu đề
-            dgvThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;              // căn giữa nội dung
-            dgvThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;                          // giãn đều cột
-            dgvThuoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;                            // tự căn dòng
+            dgvThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvThuoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
             // --- Tùy chọn hiển thị ---
             dgvThuoc.AllowUserToAddRows = false;
@@ -51,11 +51,12 @@ namespace QuanLyBenhNhan
             Functions.Connect(); // nếu có lớp Functions riêng
             LoadDataGridView();
         }
+
         private void ResetValue()
         {
             txtMaThuoc.Text = "";
             txtTenThuoc.Text = "";
-
+            txtDonViTinh.Text = ""; // THÊM ResetValue cho DonViTinh
         }
 
         // Nút Thêm
@@ -73,21 +74,18 @@ namespace QuanLyBenhNhan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // Kiểm tra có dữ liệu hay không
             if (tblThuoc == null || tblThuoc.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Kiểm tra người dùng có chọn mã thuốc chưa
             if (string.IsNullOrWhiteSpace(txtMaThuoc.Text))
             {
                 MessageBox.Show("Bạn chưa chọn mã thuốc cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Xác nhận trước khi xóa
             DialogResult result = MessageBox.Show(
                 "Bạn có chắc chắn muốn xóa thuốc này không?",
                 "Xác nhận xóa",
@@ -107,19 +105,12 @@ namespace QuanLyBenhNhan
                 cmd.ExecuteNonQuery();
             }
 
-            // Cập nhật lại DataGridView
             LoadDataGridView();
-
-            // Xóa trắng các ô nhập
-            txtMaThuoc.Text = "";
-            txtTenThuoc.Text = "";
-
+            ResetValue();
             MessageBox.Show("Đã xóa thuốc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-
-
-
+        // Nút Sửa
         private void btnSua_Click(object sender, EventArgs e)
         {
             // Kiểm tra mã thuốc
@@ -137,82 +128,97 @@ namespace QuanLyBenhNhan
                 return;
             }
 
-            // Câu lệnh SQL sửa thuốc
-            string sql = "UPDATE Thuoc SET TenThuoc = @TenThuoc WHERE MaThuoc = @MaThuoc";
+            // Kiểm tra đơn vị tính
+            if (string.IsNullOrWhiteSpace(txtDonViTinh.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDonViTinh.Focus();
+                return;
+            }
+
+            // Cập nhật Tên Thuốc và Đơn vị tính
+            string sql = "UPDATE Thuoc SET TenThuoc = @TenThuoc, DonViTinh = @DonViTinh WHERE MaThuoc = @MaThuoc";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
                 cmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text.Trim());
                 cmd.Parameters.AddWithValue("@TenThuoc", txtTenThuoc.Text.Trim());
+                cmd.Parameters.AddWithValue("@DonViTinh", txtDonViTinh.Text.Trim()); // THÊM tham số DonViTinh
                 cmd.ExecuteNonQuery();
             }
 
-            // Tải lại dữ liệu lên DataGridView
             LoadDataGridView();
-
             MessageBox.Show("Cập nhật thuốc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Reset form
-            txtMaThuoc.Text = "";
-            txtTenThuoc.Text = "";
+            ResetValue();
             txtMaThuoc.Enabled = true;
         }
 
-
+        // Nút Lưu (Thêm mới)
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string sql;
+
+            // Kiểm tra các trường bắt buộc
             if (txtMaThuoc.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập mã thuốc", "Thông báo");
+                MessageBox.Show("Bạn phải nhập mã thuốc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaThuoc.Focus();
                 return;
             }
             if (txtTenThuoc.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải nhập tên thuốc!", "Thông báo");
+                MessageBox.Show("Bạn phải nhập tên thuốc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenThuoc.Focus();
+                return;
+            }
+            if (txtDonViTinh.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDonViTinh.Focus();
                 return;
             }
 
 
+            // Kiểm tra trùng mã
             sql = "SELECT MaThuoc FROM Thuoc WHERE MaThuoc = N'" + txtMaThuoc.Text.Trim() + "'";
             if (Functions.CheckKey(sql))
             {
-                MessageBox.Show("Mã Thuốc đã tồn tại, hãy nhập mã khác!", "Thông báo");
+                MessageBox.Show("Mã Thuốc đã tồn tại, hãy nhập mã khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaThuoc.Focus();
                 return;
             }
 
 
-            sql = "INSERT INTO Thuoc (MaThuoc, TenThuoc) " +
-                  "VALUES (@MaThuoc, @TenThuoc )";
+            // THÊM DonViTinh vào câu lệnh INSERT
+            sql = "INSERT INTO Thuoc (MaThuoc, TenThuoc, DonViTinh) " +
+                  "VALUES (@MaThuoc, @TenThuoc, @DonViTinh)";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
-                // Use correct parameter names matching the SQL above
                 cmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text.Trim());
                 cmd.Parameters.AddWithValue("@TenThuoc", txtTenThuoc.Text.Trim());
+                cmd.Parameters.AddWithValue("@DonViTinh", txtDonViTinh.Text.Trim()); // THÊM tham số DonViTinh
 
                 cmd.ExecuteNonQuery();
             }
 
             LoadDataGridView();
             ResetValue();
+
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             txtMaThuoc.Enabled = false;
-            MessageBox.Show("Đã thêm thuốc mới!", "Thông báo");
+
+            MessageBox.Show("Đã thêm thuốc mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
         {
-            // Xóa trắng các ô nhập
-            txtMaThuoc.Text = "";
-            txtTenThuoc.Text = "";
+            ResetValue();
 
             // Tắt các nút không cần thiết
             btnLuu.Enabled = false;
@@ -236,16 +242,15 @@ namespace QuanLyBenhNhan
 
         private void dgvThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Nếu không có dữ liệu hoặc click ngoài vùng hợp lệ thì thoát
             if (dgvThuoc.DataSource == null || e.RowIndex < 0)
                 return;
 
-            // Lấy dòng hiện tại
             DataGridViewRow row = dgvThuoc.Rows[e.RowIndex];
 
             // Gán giá trị vào textbox
             txtMaThuoc.Text = row.Cells["MaThuoc"].Value?.ToString() ?? "";
             txtTenThuoc.Text = row.Cells["TenThuoc"].Value?.ToString() ?? "";
+            txtDonViTinh.Text = row.Cells["DonViTinh"].Value?.ToString() ?? ""; // GÁN giá trị Đơn vị tính
 
             // Cập nhật trạng thái nút
             btnSua.Enabled = true;
@@ -256,6 +261,5 @@ namespace QuanLyBenhNhan
             // Không cho sửa mã thuốc trực tiếp
             txtMaThuoc.Enabled = false;
         }
-
     }
 }

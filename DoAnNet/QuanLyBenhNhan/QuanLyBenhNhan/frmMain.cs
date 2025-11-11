@@ -96,7 +96,8 @@ namespace QuanLyBenhNhan
 
         private void mnuFindDonThuoc_Click(object sender, EventArgs e)
         {
-
+            frmChiTietDonThuoc frm = new frmChiTietDonThuoc();
+            frm.ShowDialog();
         }
 
         

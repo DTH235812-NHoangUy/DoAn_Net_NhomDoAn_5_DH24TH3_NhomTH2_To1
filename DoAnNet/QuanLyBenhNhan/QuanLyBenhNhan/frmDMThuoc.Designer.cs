@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtDonViTinh = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtTenThuoc = new System.Windows.Forms.TextBox();
             this.txtMaThuoc = new System.Windows.Forms.TextBox();
             this.lblTenThuoc = new System.Windows.Forms.Label();
@@ -48,6 +50,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtDonViTinh);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtTenThuoc);
             this.panel1.Controls.Add(this.txtMaThuoc);
             this.panel1.Controls.Add(this.lblTenThuoc);
@@ -59,9 +63,27 @@
             this.panel1.Size = new System.Drawing.Size(1200, 166);
             this.panel1.TabIndex = 0;
             // 
+            // txtDonViTinh
+            // 
+            this.txtDonViTinh.Location = new System.Drawing.Point(340, 96);
+            this.txtDonViTinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDonViTinh.Name = "txtDonViTinh";
+            this.txtDonViTinh.Size = new System.Drawing.Size(248, 26);
+            this.txtDonViTinh.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(232, 99);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Đơn vị";
+            // 
             // txtTenThuoc
             // 
-            this.txtTenThuoc.Location = new System.Drawing.Point(544, 96);
+            this.txtTenThuoc.Location = new System.Drawing.Point(340, 60);
             this.txtTenThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenThuoc.Name = "txtTenThuoc";
             this.txtTenThuoc.Size = new System.Drawing.Size(248, 26);
@@ -69,7 +91,7 @@
             // 
             // txtMaThuoc
             // 
-            this.txtMaThuoc.Location = new System.Drawing.Point(544, 45);
+            this.txtMaThuoc.Location = new System.Drawing.Point(340, 24);
             this.txtMaThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaThuoc.Name = "txtMaThuoc";
             this.txtMaThuoc.Size = new System.Drawing.Size(248, 26);
@@ -78,7 +100,7 @@
             // lblTenThuoc
             // 
             this.lblTenThuoc.AutoSize = true;
-            this.lblTenThuoc.Location = new System.Drawing.Point(441, 101);
+            this.lblTenThuoc.Location = new System.Drawing.Point(232, 66);
             this.lblTenThuoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTenThuoc.Name = "lblTenThuoc";
             this.lblTenThuoc.Size = new System.Drawing.Size(88, 20);
@@ -88,7 +110,7 @@
             // lblMaThuoc
             // 
             this.lblMaThuoc.AutoSize = true;
-            this.lblMaThuoc.Location = new System.Drawing.Point(441, 51);
+            this.lblMaThuoc.Location = new System.Drawing.Point(232, 30);
             this.lblMaThuoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMaThuoc.Name = "lblMaThuoc";
             this.lblMaThuoc.Size = new System.Drawing.Size(83, 20);
@@ -229,5 +251,7 @@
         private System.Windows.Forms.Label lblMaThuoc;
         private System.Windows.Forms.TextBox txtTenThuoc;
         private System.Windows.Forms.TextBox txtMaThuoc;
+        private System.Windows.Forms.TextBox txtDonViTinh;
+        private System.Windows.Forms.Label label1;
     }
 }

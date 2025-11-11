@@ -1,66 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyBenhNhan
 {
     public partial class frmDMDonThuoc : Form
     {
-        private DataTable tblDT; // Bảng danh mục Đơn Thuốc
+        private DataTable tblDT;
+
         public frmDMDonThuoc()
         {
             InitializeComponent();
         }
+
         private void LoadDataGridView()
         {
-            string sql = "SELECT MaDT, TenDT,CachSuDung,DonViTinh FROM DonThuoc";
+            // Lấy tất cả các trường cần thiết, bao gồm MaBN và MaNV
+            string sql = "SELECT MaDT, MaBN, MaNV, NgayLap, GhiChu FROM DonThuoc";
 
-            // Lấy dữ liệu ra DataTable và gán cho field (không khai báo cục bộ để tránh shadowing)
             tblDT = Functions.GetDataToTable(sql);
-
-            // Gán dữ liệu cho DataGridView
             dgvDonThuoc.DataSource = tblDT;
 
             // --- Đặt tiêu đề cột ---
             dgvDonThuoc.Columns["MaDT"].HeaderText = "Mã đơn thuốc";
-            dgvDonThuoc.Columns["TenDT"].HeaderText = "Tên đơn thuốc";
-            dgvDonThuoc.Columns["CachSuDung"].HeaderText = "Cách sử dụng";
-            dgvDonThuoc.Columns["DonViTinh"].HeaderText = "Đơn vị tính";
+            dgvDonThuoc.Columns["MaBN"].HeaderText = "Mã Bệnh Nhân";
+            dgvDonThuoc.Columns["MaNV"].HeaderText = "Mã Nhân Viên";
+            dgvDonThuoc.Columns["NgayLap"].HeaderText = "Ngày Lập";
+            dgvDonThuoc.Columns["GhiChu"].HeaderText = "Ghi chú";
 
-            // --- Căn chỉnh hiển thị ---
-            dgvDonThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // căn giữa tiêu đề
-            dgvDonThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;              // căn giữa nội dung
-            dgvDonThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;                          // giãn đều cột
-            dgvDonThuoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;                            // tự căn dòng
-
-            // --- Tùy chọn hiển thị ---
-            dgvDonThuoc.AllowUserToAddRows = false;
-            dgvDonThuoc.AllowUserToDeleteRows = false;
+            // --- Thiết lập hiển thị ---
+            dgvDonThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvDonThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvDonThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDonThuoc.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvDonThuoc.RowHeadersVisible = false;
-            dgvDonThuoc.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+        }
+
+        private void LoadCombobox()
+        {
+            // Nạp dữ liệu vào cboMaBN
+            Functions.FillCombo("SELECT MaBN, HoTenBN FROM BenhNhan", cboMaBN, "MaBN", "MaBN");
+            cboMaBN.SelectedIndex = -1;
+
+            // Nạp dữ liệu vào cboMaNV
+            Functions.FillCombo("SELECT MaNV, HoTenNV FROM NhanVien", cboMaNV, "MaNV", "MaNV");
+            cboMaNV.SelectedIndex = -1;
         }
 
         private void frmDMDonThuoc_Load(object sender, EventArgs e)
         {
-                btnLuu.Enabled = false;
-                btnBoQua.Enabled = false;
-                Functions.Connect(); // nếu có lớp Functions riêng
-                LoadDataGridView();
+            btnLuu.Enabled = false;
+            btnBoQua.Enabled = false;
+            Functions.Connect();
+            LoadCombobox(); // Tải dữ liệu cho ComboBox
+            LoadDataGridView();
+            dtpNgayLap.Value = DateTime.Now.Date;
         }
+
         private void ResetValue()
         {
             txtMaDT.Text = "";
-            txtTenDT.Text = "";
-            txtCachSuDung.Text = "";
-            txtDonViTinh.Text = "";
+            dtpNgayLap.Value = DateTime.Now.Date;
+            txtGhiChu.Text = "";
+            cboMaBN.Text = ""; // Reset ComboBox
+            cboMaNV.Text = ""; // Reset ComboBox
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -77,23 +82,20 @@ namespace QuanLyBenhNhan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // Kiểm tra có dữ liệu hay không
             if (tblDT == null || tblDT.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Kiểm tra người dùng có chọn mã đơn thuốc chưa
             if (string.IsNullOrWhiteSpace(txtMaDT.Text))
             {
                 MessageBox.Show("Bạn chưa chọn mã đơn thuốc cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Xác nhận trước khi xóa
             DialogResult result = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa đơn thuốc này không?",
+                "Bạn có chắc chắn muốn xóa đơn thuốc này không? Việc này sẽ xóa TẤT CẢ các chi tiết thuốc liên quan!",
                 "Xác nhận xóa",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
@@ -102,155 +104,183 @@ namespace QuanLyBenhNhan
             if (result == DialogResult.No)
                 return;
 
-
-            // Thực hiện lệnh xóa
             string sql = "DELETE FROM DonThuoc WHERE MaDT = @MaDT";
-            using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
+            try
             {
-                cmd.Parameters.AddWithValue("@MaDonThuoc", txtMaDT.Text.Trim());
-                cmd.ExecuteNonQuery();
+                using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
+                {
+                    cmd.Parameters.AddWithValue("@MaDT", txtMaDT.Text.Trim());
+                    cmd.ExecuteNonQuery();
+                }
+                LoadDataGridView();
+                ResetValue();
+                MessageBox.Show("Đã xóa ĐƠN thuốc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            // Cập nhật lại DataGridView
-            LoadDataGridView();
-
-            // Xóa trắng các ô nhập
-            txtMaDT.Text = "";
-            txtTenDT.Text = "";
-
-            MessageBox.Show("Đã xóa ĐƠN thuốc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            // Kiểm tra mã thuốc
             if (string.IsNullOrWhiteSpace(txtMaDT.Text))
             {
                 MessageBox.Show("Vui lòng chọn mã ĐƠN thuốc cần sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Kiểm tra tên thuốc
-            if (string.IsNullOrWhiteSpace(txtTenDT.Text))
+            if (dtpNgayLap.Value > DateTime.Now.Date)
             {
-                MessageBox.Show("Vui lòng nhập tên ĐƠN thuốc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenDT.Focus();
+                MessageBox.Show("Ngày lập không thể là ngày trong tương lai!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpNgayLap.Focus();
                 return;
             }
 
-            // Câu lệnh SQL sửa thuốc
-            string sql = "UPDATE DonThuoc SET TenDT = @TenDT WHERE MaDT = @MaDT";
+            // LƯU Ý: Không cho phép sửa MaBN và MaNV vì chúng là Khóa Ngoại quan trọng
+            // Form này chỉ cho phép sửa NgayLap và GhiChu
 
-            using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
+            string sql = "UPDATE DonThuoc SET NgayLap = @NgayLap, GhiChu = @GhiChu WHERE MaDT = @MaDT";
+
+            try
             {
-                cmd.Parameters.AddWithValue("@MaDT", txtMaDT.Text.Trim());
-                cmd.Parameters.AddWithValue("@TenDT", txtTenDT.Text.Trim());
-                cmd.ExecuteNonQuery();
+                using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
+                {
+                    cmd.Parameters.AddWithValue("@MaDT", txtMaDT.Text.Trim());
+                    cmd.Parameters.AddWithValue("@NgayLap", dtpNgayLap.Value.Date);
+                    cmd.Parameters.AddWithValue("@GhiChu", txtGhiChu.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                }
+                LoadDataGridView();
+                MessageBox.Show("Cập nhật ĐƠN thuốc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL khi sửa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // Tải lại dữ liệu lên DataGridView
-            LoadDataGridView();
-
-            MessageBox.Show("Cập nhật ĐƠN thuốc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Reset form
-            txtMaDT.Text = "";
-            txtTenDT.Text = "";
+            ResetValue();
             txtMaDT.Enabled = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            string sql;
+
+            // Kiểm tra MaDT
+            if (txtMaDT.Text.Trim().Length == 0)
             {
-                string sql;
-                if (txtMaDT.Text.Trim().Length == 0)
-                {
-                    MessageBox.Show("Bạn phải nhập mã ĐƠN thuốc", "Thông báo");
-                    txtMaDT.Focus();
-                    return;
-                }
-                if (txtTenDT.Text.Trim().Length == 0)
-                {
-                    MessageBox.Show("Bạn phải nhập tên ĐƠN thuốc!", "Thông báo");
-                    txtTenDT.Focus();
-                    return;
-                }
+                MessageBox.Show("Bạn phải nhập mã ĐƠN thuốc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaDT.Focus();
+                return;
+            }
 
+            // Kiểm tra MaBN và MaNV (BẮT BUỘC)
+            if (cboMaBN.SelectedValue == null)
+            {
+                MessageBox.Show("Bạn phải chọn Mã Bệnh Nhân.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboMaBN.Focus();
+                return;
+            }
+            if (cboMaNV.SelectedValue == null)
+            {
+                MessageBox.Show("Bạn phải chọn Mã Nhân Viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboMaNV.Focus();
+                return;
+            }
 
-                sql = "SELECT MaDT FROM DonThuoc WHERE MaDT = N'" + txtMaDT.Text.Trim() + "'";
-                if (Functions.CheckKey(sql))
-                {
-                    MessageBox.Show("Mã ĐƠN Thuốc đã tồn tại, hãy nhập mã khác!", "Thông báo");
-                    txtMaDT.Focus();
-                    return;
-                }
+            string maBN = cboMaBN.SelectedValue.ToString();
+            string maNV = cboMaNV.SelectedValue.ToString();
 
+            if (dtpNgayLap.Value > DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày lập không thể là ngày trong tương lai!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpNgayLap.Focus();
+                return;
+            }
 
-                sql = "INSERT INTO DonThuoc (MaDT, TenDT,CachSuDung,DonViTinh) " +
-                      "VALUES (@MaDT, @TenDT,@CachSuDung,@DonViTinh )";
+            // Kiểm tra trùng mã
+            sql = "SELECT MaDT FROM DonThuoc WHERE MaDT = N'" + txtMaDT.Text.Trim() + "'";
+            if (Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã ĐƠN Thuốc đã tồn tại, hãy nhập mã khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaDT.Focus();
+                return;
+            }
 
+            // INSERT MaDT, MaBN, MaNV, NgayLap, GhiChu
+            sql = "INSERT INTO DonThuoc (MaDT, MaBN, MaNV, NgayLap, GhiChu) " +
+                  "VALUES (@MaDT, @MaBN, @MaNV, @NgayLap, @GhiChu)";
+
+            try
+            {
                 using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
                 {
-                    // Use correct parameter names matching the SQL above
                     cmd.Parameters.AddWithValue("@MaDT", txtMaDT.Text.Trim());
-                    cmd.Parameters.AddWithValue("@TenDT", txtTenDT.Text.Trim());
-                    cmd.Parameters.AddWithValue("@CachSuDung", txtCachSuDung.Text.Trim());
-                    cmd.Parameters.AddWithValue("@DonViTinh", txtDonViTinh.Text.Trim());
-
+                    cmd.Parameters.AddWithValue("@MaBN", maBN);
+                    cmd.Parameters.AddWithValue("@MaNV", maNV);
+                    cmd.Parameters.AddWithValue("@NgayLap", dtpNgayLap.Value.Date);
+                    cmd.Parameters.AddWithValue("@GhiChu", txtGhiChu.Text.Trim());
 
                     cmd.ExecuteNonQuery();
                 }
 
                 LoadDataGridView();
                 ResetValue();
+
                 btnThem.Enabled = true;
                 btnSua.Enabled = true;
                 btnXoa.Enabled = true;
                 btnLuu.Enabled = false;
                 btnBoQua.Enabled = false;
                 txtMaDT.Enabled = false;
-                MessageBox.Show("Đã thêm ĐƠN thuốc mới!", "Thông báo");
+
+                MessageBox.Show("Đã thêm ĐƠN thuốc mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL khi lưu: " + ex.Message + ". Vui lòng kiểm tra Mã BN và Mã NV đã tồn tại trong danh mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
         {
-            // Xóa trắng các ô nhập
-            txtMaDT.Text = "";
-            txtTenDT.Text = "";
+            ResetValue();
 
-            // Tắt các nút không cần thiết
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
-
-            // Bật lại các nút chính
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
 
-            // Không cho sửa mã ĐƠN thuốc
             txtMaDT.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-             this.Close();
+            this.Close();
         }
 
         private void dgvDonThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Nếu không có dữ liệu hoặc click ngoài vùng hợp lệ thì thoát
-            if (dgvDonThuoc.DataSource == null || e.RowIndex < 0)
+            if (tblDT == null || e.RowIndex < 0 || tblDT.Rows.Count == 0)
                 return;
 
-            // Lấy dòng hiện tại
             DataGridViewRow row = dgvDonThuoc.Rows[e.RowIndex];
 
-            // Gán giá trị vào textbox
+            // Gán giá trị MaDT, NgayLap, GhiChu
             txtMaDT.Text = row.Cells["MaDT"].Value?.ToString() ?? "";
-            txtTenDT.Text = row.Cells["TenDT"].Value?.ToString() ?? "";
-            txtCachSuDung.Text = row.Cells["CachSuDung"].Value?.ToString() ?? "";
-            txtDonViTinh.Text = row.Cells["DonViTinh"].Value?.ToString() ?? "";
+            txtGhiChu.Text = row.Cells["GhiChu"].Value?.ToString() ?? "";
+
+            // Gán MaBN và MaNV vào ComboBox
+            cboMaBN.Text = row.Cells["MaBN"].Value?.ToString() ?? "";
+            cboMaNV.Text = row.Cells["MaNV"].Value?.ToString() ?? "";
+
+            if (DateTime.TryParse(row.Cells["NgayLap"].Value?.ToString(), out DateTime ngayLap))
+                dtpNgayLap.Value = ngayLap.Date;
+            else
+                dtpNgayLap.Value = DateTime.Now.Date;
 
             // Cập nhật trạng thái nút
             btnSua.Enabled = true;
@@ -258,10 +288,7 @@ namespace QuanLyBenhNhan
             btnBoQua.Enabled = true;
             btnLuu.Enabled = false;
 
-            // Không cho sửa mã thuốc trực tiếp
             txtMaDT.Enabled = false;
         }
     }
 }
- 
-
