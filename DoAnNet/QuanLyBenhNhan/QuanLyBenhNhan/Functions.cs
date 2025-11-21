@@ -19,7 +19,7 @@ namespace QuanLyBenhNhan
 
 
             // ====== Cấu hình chuỗi kết nối ======
-            string connectionString = @"Data Source= DESKTOP-67VEU9P\SERVERBENHVIEN;Initial Catalog=ChuongTrinh_QuanLyBenhNhan;Integrated Security=True";
+            string connectionString = @"Data Source= admin;Initial Catalog=ChuongTrinh_QuanLyBenhNhan;Integrated Security=True";
 
             // ====== Khởi tạo đối tượng SqlConnection ======
             Con = new SqlConnection(connectionString);
