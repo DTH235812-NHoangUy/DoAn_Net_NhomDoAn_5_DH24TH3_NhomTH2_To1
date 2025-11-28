@@ -49,7 +49,6 @@ C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\Quan
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.csproj.AssemblyReference.cache
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMBenhNhan.resources
-C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMBHYT.resources
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMChucVu.resources
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMDonThuoc.resources
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMKhoa.resources

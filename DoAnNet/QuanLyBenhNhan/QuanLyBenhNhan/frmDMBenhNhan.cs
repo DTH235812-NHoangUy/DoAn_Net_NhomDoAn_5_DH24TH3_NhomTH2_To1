@@ -8,6 +8,7 @@ namespace QuanLyBenhNhan
     public partial class frmDMBenhNhan : Form
     {
         DataTable tblBN;
+        DataTable tblMB; // lookup table for MacBenh (diseases)
 
         public frmDMBenhNhan()
         {
@@ -19,8 +20,9 @@ namespace QuanLyBenhNhan
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             Functions.Connect(); // nếu bạn có hàm mở kết nối
+            LoadComboBoxBenh();
             LoadDataGridView();
-            
+
 
             // --- Căn giữa ---
             dgvBenhNhan.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -29,8 +31,21 @@ namespace QuanLyBenhNhan
             dgvBenhNhan.RowHeadersVisible = false;
         }
 
-           
+        private void LoadComboBoxBenh()
+        {
+            string sql = "SELECT MaBenh, LoaiBenh FROM MacBenh";
+            tblMB = Functions.GetDataToTable(sql);
 
+            // If there's no combo on the form, nothing to do.
+            if (cboMacBenh == null) return;
+
+            cboMacBenh.DataSource = tblMB;
+            cboMacBenh.DisplayMember = "LoaiBenh";
+            cboMacBenh.ValueMember = "MaBenh";
+
+            // No selection by default
+            cboMacBenh.SelectedIndex = -1;
+        }
 
         private void LoadDataGridView()
         {
@@ -61,6 +76,9 @@ namespace QuanLyBenhNhan
             txtDiaChiBN.Text = "";
             txtSDTBN.Text = "";
             dtpNgaySinh.Value = DateTime.Now;
+
+            if (cboMacBenh != null)
+                cboMacBenh.SelectedIndex = -1;
         }
 
         // Nút Thêm
@@ -74,6 +92,9 @@ namespace QuanLyBenhNhan
             ResetValue();
             txtMaBN.Enabled = true;
             txtMaBN.Focus();
+
+            if (cboMacBenh != null)
+                cboMacBenh.Enabled = true;
         }
 
         // Nút Lưu
@@ -106,10 +127,10 @@ namespace QuanLyBenhNhan
                 txtMaBN.Focus();
                 return;
             }
-            
+
             string gioitinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
-            sql = "INSERT INTO BenhNhan (MaBN, HoTenBN, GioiTinhBN, TuoiBN, NgaySinh, DiaChiBN, SDTBN) " +
-                  "VALUES (@MaBN, @HoTenBN, @GioiTinhBN, @TuoiBN, @NgaySinh, @DiaChiBN, @SDTBN)";
+            sql = "INSERT INTO BenhNhan (MaBN, HoTenBN, GioiTinhBN, TuoiBN, NgaySinh, DiaChiBN, SDTBN, MaBenh) " +
+                  "VALUES (@MaBN, @HoTenBN, @GioiTinhBN, @TuoiBN, @NgaySinh, @DiaChiBN, @SDTBN, @MaBenh)";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
             {
@@ -121,6 +142,8 @@ namespace QuanLyBenhNhan
                 cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());
                 cmd.Parameters.AddWithValue("@SDTBN", txtSDTBN.Text.Trim());
 
+                object maBenhParam = (cboMacBenh != null && cboMacBenh.SelectedValue != null) ? (object)cboMacBenh.SelectedValue : DBNull.Value;
+                cmd.Parameters.AddWithValue("@MaBenh", maBenhParam);
 
                 cmd.ExecuteNonQuery();
             }
@@ -133,9 +156,10 @@ namespace QuanLyBenhNhan
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             txtMaBN.Enabled = false;
+            if (cboMacBenh != null) cboMacBenh.Enabled = true;
             MessageBox.Show("Đã thêm bệnh nhân mới!", "Thông báo");
         }
-       
+
         // Khi click chọn dòng trong DataGridView
         private void dgvBenhNhan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -160,8 +184,7 @@ namespace QuanLyBenhNhan
             var sdt = GetCellSafe("SDTBN");
             var ngaysinh = GetCellSafe("NgaySinh");
             var gioitinh = GetCellSafe("GioiTinhBN")?.ToString() ?? "Nam";
-            
-           
+            var mab = GetCellSafe("MaBenh");
 
             txtMaBN.Text = ma?.ToString() ?? "";
             txtHoTenBN.Text = hoten?.ToString() ?? "";
@@ -174,7 +197,34 @@ namespace QuanLyBenhNhan
             else
                 dtpNgaySinh.Value = DateTime.Now;
 
-           chkGioiTinh.Checked = (gioitinh == "Nam");
+            chkGioiTinh.Checked = (gioitinh == "Nam");
+
+            // Set combobox selected value if available
+            if (cboMacBenh != null)
+            {
+                if (mab == null || mab == DBNull.Value)
+                {
+                    cboMacBenh.SelectedIndex = -1;
+                }
+                else
+                {
+                    string mabStr = mab.ToString();
+                    // Try to select; if value not found, set to -1
+                    try
+                    {
+                        cboMacBenh.SelectedValue = mabStr;
+                        if (cboMacBenh.SelectedIndex == -1)
+                        {
+                            // maybe data not yet loaded or value not present
+                            // keep selection empty
+                        }
+                    }
+                    catch
+                    {
+                        cboMacBenh.SelectedIndex = -1;
+                    }
+                }
+            }
 
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -207,7 +257,7 @@ namespace QuanLyBenhNhan
             string gioitinh = chkGioiTinh.Checked ? "Nam" : "Nữ";
 
             string sql = "UPDATE BenhNhan SET HoTenBN = @HoTenBN, GioiTinhBN = @GioiTinhBN, TuoiBN = @TuoiBN, " +
-                         "NgaySinh = @NgaySinh, DiaChiBN = @DiaChiBN, SDTBN = @SDTBN " +
+                         "NgaySinh = @NgaySinh, DiaChiBN = @DiaChiBN, SDTBN = @SDTBN, MaBenh = @MaBenh " +
                          "WHERE MaBN = @MaBN";
 
             using (SqlCommand cmd = new SqlCommand(sql, Functions.Con))
@@ -218,6 +268,10 @@ namespace QuanLyBenhNhan
                 cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
                 cmd.Parameters.AddWithValue("@DiaChiBN", txtDiaChiBN.Text.Trim());
                 cmd.Parameters.AddWithValue("@SDTBN", txtSDTBN.Text.Trim());
+
+                object maBenhParam = (cboMacBenh != null && cboMacBenh.SelectedValue != null) ? (object)cboMacBenh.SelectedValue : DBNull.Value;
+                cmd.Parameters.AddWithValue("@MaBenh", maBenhParam);
+
                 cmd.Parameters.AddWithValue("@MaBN", txtMaBN.Text.Trim());
                 cmd.ExecuteNonQuery();
             }
@@ -268,6 +322,7 @@ namespace QuanLyBenhNhan
             btnSua.Enabled = true;
             btnLuu.Enabled = false;
             txtMaBN.Enabled = false;
+            if (cboMacBenh != null) cboMacBenh.Enabled = true;
         }
 
         // Nút Thoát
@@ -276,6 +331,6 @@ namespace QuanLyBenhNhan
             this.Close();
         }
 
-       
+
     }
 }
