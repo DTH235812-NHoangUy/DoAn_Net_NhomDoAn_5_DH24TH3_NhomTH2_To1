@@ -100,6 +100,10 @@ namespace QuanLyBenhNhan
             frm.ShowDialog();
         }
 
-        
+        private void mnuChiTietBenhNhan_Click(object sender, EventArgs e)
+        {
+            frmChiTietBenhNhan frm = new frmChiTietBenhNhan();
+            frm.ShowDialog();
+        }
     }
 }
