@@ -64,31 +64,26 @@ namespace QuanLyBenhNhan
 
             switch (this.CurrentUserType)
             {
-                case "Admin":
+                
+                case "admin":
                     // Admin có toàn quyền truy cập
                     mnuDanhMuc.Visible = true;
                     mnuToaThuoc.Visible = true;
                     mnuFind.Visible = true;
                     break;
-                case "BacSi":
-                    // Bác sĩ có thể xem danh mục (BN, MacBenh) và Toa Thuốc
+                case "nhanvien":
+                    // Nhân viên có thể xem Danh mục BN và tìm kiếm
                     mnuDanhMuc.Visible = true;
-                    mnuToaThuoc.Visible = true;
-                    mnuFind.Visible = true;
-                    // Bác sĩ không quản lý hệ thống (NV, CV, Khoa)
+                    mnuDMMacBenh.Visible = false;
+                    mnuChiTietBenhNhan.Visible = false;
+                    mnuChucVu.Visible = false;
+                    mnuDonThuoc.Visible = false;
+                    mnuFindDonThuoc.Visible = false;
+                    mnuFind.Visible = false;
+                    mnuToaThuoc.Visible = false;
                     mnuNhanVien.Visible = false;
                     mnuChucVu.Visible = false;
                     mnuKhoa.Visible = false;
-                    break;
-                case "NhanVien":
-                    // Nhân viên có thể xem Danh mục BN và tìm kiếm
-                    mnuDanhMuc.Visible = true;
-                    mnuFind.Visible = true;
-                    // Ẩn các menu liên quan đến nhân viên và toa thuốc
-                    mnuToaThuoc.Visible = false;
-                    mnuNhanVien.Visible = true;
-                    mnuChucVu.Visible = true;
-                    mnuKhoa.Visible = true;
                     break;
                 default:
                     // Không có quyền
@@ -109,28 +104,25 @@ namespace QuanLyBenhNhan
             {
                 MessageBox.Show("Vui lòng nhập Tên đăng nhập và Mật khẩu.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            else
-                {
-                    panel1 = 
-                }
             }
+            else 
 
             // LOGIC ĐĂNG NHẬP CỨNG VỚI PASS "123"
             if (matKhau == "123")
             {
                 if (tenDangNhap == "admin")
                 {
-                    loaiTaiKhoan = "Admin";
+                    loaiTaiKhoan = "admin";
                     dangNhapThanhCong = true;
                 }
                 else if (tenDangNhap == "nhanvien")
                 {
-                    loaiTaiKhoan = "NhanVien";
+                    loaiTaiKhoan = "nhanvien";
                     dangNhapThanhCong = true;
                 }
                 else if (tenDangNhap == "bacsi")
                 {
-                    loaiTaiKhoan = "BacSi";
+                    loaiTaiKhoan = "bacsi";
                     dangNhapThanhCong = true;
                 }
             }
@@ -145,7 +137,7 @@ namespace QuanLyBenhNhan
                 this.CurrentUserType = loaiTaiKhoan;
 
                 // Ẩn khu vực đăng nhập
-                HienThiKhuVucDangNhap(false);
+                HienThiKhuVucDangNhap(true);
 
                 // Cập nhật Label chính và thực hiện Phân quyền Menu
                 label1.Text = "CHƯƠNG TRÌNH QUẢN LÝ BỆNH NHÂN - Xin chào, " + tenDangNhap.ToUpper();
@@ -172,8 +164,6 @@ namespace QuanLyBenhNhan
             frmDMBenhNhan frm = new frmDMBenhNhan();
             frm.ShowDialog();
         }
-
-
         private void mnuDMMacBenh_Click(object sender, EventArgs e)
         {
             frmDMMacBenh frm = new frmDMMacBenh();
