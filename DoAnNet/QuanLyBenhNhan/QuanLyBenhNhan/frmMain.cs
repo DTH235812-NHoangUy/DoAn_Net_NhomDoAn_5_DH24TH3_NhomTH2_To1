@@ -26,6 +26,7 @@ namespace QuanLyBenhNhan
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+
             // Kết nối CSDL khi Form Main Load
             QuanLyBenhNhan.Functions.Connect();
 
@@ -140,7 +141,7 @@ namespace QuanLyBenhNhan
                 HienThiKhuVucDangNhap(true);
 
                 // Cập nhật Label chính và thực hiện Phân quyền Menu
-                label1.Text = "CHƯƠNG TRÌNH QUẢN LÝ BỆNH NHÂN - Xin chào, " + tenDangNhap.ToUpper();
+                label1.Text = "CHƯƠNG TRÌNH QUẢN LÝ BỆNH NHÂN " ;
                 PhanQuyenMenu();
             }
             else
