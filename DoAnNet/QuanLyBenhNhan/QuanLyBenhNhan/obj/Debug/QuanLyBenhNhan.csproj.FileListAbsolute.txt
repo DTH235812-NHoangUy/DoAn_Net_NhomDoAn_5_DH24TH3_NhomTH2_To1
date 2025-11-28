@@ -33,7 +33,6 @@ D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBe.FF7EFA06.Up
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.pdb
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.exe.config
-D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMBHYT.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMChucVu.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMDonThuoc.resources
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmDMKhoa.resources
@@ -66,3 +65,4 @@ C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\Quan
 D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmChiTietDonThuoc.resources
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmChiTietDonThuoc.resources
 C:\Users\Admin\Source\Repos\DoAn_Net_NhomDoAn_5_DH24TH3_NhomTH2_To1\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmChiTietBenhNhan.resources
+D:\Net\DoAn\DoAnNet\QuanLyBenhNhan\QuanLyBenhNhan\obj\Debug\QuanLyBenhNhan.frmChiTietBenhNhan.resources
